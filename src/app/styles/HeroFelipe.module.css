@@ -37,6 +37,49 @@
     border-radius: 4px;
     font-weight: 600;
   }
+
+  .nav a{
+    font-size: 1rem;
+    color: rgb(255, 255, 255);
+    margin-left: 2rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+    border-bottom: 3px solid transparent;
+  }
+
+  .header {
+        margin-top: 20px;
+        position: fixed;
+        top: 0;
+        left: 5%;
+        width: 100%;
+        padding: 1rem 9%;
+        background-color: transparent;
+        filter: drop-shadow(10px);
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        z-index: 100;
+  }
+
+  .header nav a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s, border-bottom 0.3s;
+    padding-bottom: 5px;
+  }
+
+  .header nav a:hover {
+    color: #E94C88;
+    border-bottom: 3px solid #E94C88;
+    text-shadow: 0 0 10px rgba(233,76,136,0.3);
+  }
+
+  .header nav a.active {
+    color: #E94C88;
+    border-bottom: 3px solid #E94C88;
+    text-shadow: 0 0 10px rgba(233,76,136,0.3);
+  }
   
   .ctas {
     display: flex;
