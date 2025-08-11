@@ -16,7 +16,7 @@ export default function HeroFelipe() {
       </header>
       <main className={heroStyles.main}>
         <ol>
-          <h1>Portfolio Website 0.1</h1>
+          <h1>Portfolio Website 0.2</h1>
         </ol>
       </main>
     </section>

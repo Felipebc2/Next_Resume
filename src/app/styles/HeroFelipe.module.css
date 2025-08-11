@@ -24,6 +24,7 @@
     line-height: 24px;
     letter-spacing: -0.01em;
     list-style-position: inside;
+    font-size: 1.2rem;
   }
   
   .main li:not(:last-of-type) {
@@ -39,7 +40,7 @@
   }
 
   .nav a{
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: rgb(255, 255, 255);
     margin-left: 2rem;
     font-weight: 500;
