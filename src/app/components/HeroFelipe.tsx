@@ -35,7 +35,7 @@ export default function HeroFelipe() {
             <div className={heroStyles.animateFadeUp}>
               {/* Main Title */}
               <h1 className={heroStyles.mainTitle}>
-                <span className={heroStyles.helloText}>Olá, eu sou </span>
+                <span className={heroStyles.helloText}></span>
                 <span className={heroStyles.felipeText}>
                   Felipe Castro
                 </span>
@@ -43,7 +43,7 @@ export default function HeroFelipe() {
               
               {/* Subtitle */}
               <p className={heroStyles.subtitle}>
-                Desenvolvedor FullStack, Materializando ideias em realidade
+                Desenvolvedor Front-End, Materializando ideias em realidade
               </p>
               
               {/* Contact Pills */}
