@@ -1,11 +1,21 @@
 @import './theme.css';
 
+:root {
+  --accent-h: 210;
+  --accent: hsl(var(--accent-h) 80% 60%);
+  --mx: 0.5;
+  --my: 0.5;
+}
+
 html, body {
   margin: 0;
   padding: 0;
   font-family: system-ui, sans-serif;
-  background-color: var(--color-bg);
   color: var(--color-text);
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+  background-color: var(--color-bg);
 }
 
 a {

@@ -1,0 +1,81 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: linear-gradient(90deg, hsl(var(--accent-h, 210) 80% 20% / 0.24), transparent);
+  border-bottom: 1px solid hsl(var(--accent-h, 210) 70% 60% / 0.25);
+  transition: all 0.35s ease;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.header.scrolled {
+  background: linear-gradient(90deg, hsl(var(--accent-h, 210) 80% 20% / 0.36), transparent 60%);
+}
+
+.header.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.header.hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+}
+
+.brand {
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  font-size: 1.2rem;
+}
+
+.nav {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.nav a {
+  opacity: 0.9;
+  transition: all 0.2s ease;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.nav a:hover {
+  color: hsl(var(--accent-h, 210) 80% 60%);
+  background: hsl(var(--accent-h, 210) 80% 20% / 0.1);
+  opacity: 1;
+}
+
+.separator {
+  height: 1px;
+  background: linear-gradient(90deg, 
+    hsl(var(--accent-h, 210) 70% 60% / 0.5), 
+    transparent 80%);
+  margin: 0 20px;
+}
+
+@media (max-width: 768px) {
+  .nav {
+    gap: 12px;
+  }
+  
+  .nav a {
+    padding: 6px 8px;
+    font-size: 0.9rem;
+  }
+}

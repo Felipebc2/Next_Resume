@@ -1,0 +1,30 @@
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(1200px 600px at calc(100% * var(--mx, 0.5)) calc(100% * var(--my, 0.5)), 
+    hsl(var(--accent-h, 210) 80% 14% / 0.9), 
+    transparent 60%),
+    radial-gradient(800px 400px at 20% 10%, 
+    hsl(330 80% 10% / 0.6), 
+    transparent 60%),
+    radial-gradient(600px 600px at 85% 80%, 
+    hsl(200 90% 8% / 0.6), 
+    transparent 55%),
+    linear-gradient(180deg, 
+    hsl(240 10% 8%), 
+    hsl(240 10% 4%));
+  filter: saturate(1.1);
+  animation: floatBG 24s ease-in-out infinite;
+}
+
+@keyframes floatBG {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -10px, 0);
+  }
+}

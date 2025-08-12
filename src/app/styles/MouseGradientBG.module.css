@@ -1,0 +1,61 @@
+.wrap {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  color: white;
+}
+
+.bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -9999;
+  pointer-events: none;
+  background: 
+    radial-gradient(1100px 600px at calc(100% * var(--mx, 0.5)) calc(100% * var(--my, 0.5)), 
+    rgba(39, 215, 194, 0.3), 
+    transparent 60%),
+    radial-gradient(800px 420px at calc(90% - 20% * var(--mx, 0.5)) calc(80% - 20% * var(--my, 0.5)), 
+    rgba(233, 76, 136, 0.3), 
+    transparent 60%),
+    radial-gradient(700px 700px at calc(10% + 30% * var(--mx, 0.5)) calc(15% + 30% * var(--my, 0.5)), 
+    rgba(124, 109, 255, 0.3), 
+    transparent 55%),
+    linear-gradient(180deg, #0B0B0F, #111318);
+  animation: floatBG 24s ease-in-out infinite;
+}
+
+@keyframes floatBG {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -10px, 0);
+  }
+}
+
+.content {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 100svh;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.content h1 {
+  margin: 0 0 10px;
+  font-size: clamp(28px, 4vw, 56px);
+  text-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
+
+.content p {
+  margin: 0 0 8px;
+  color: hsl(0 0% 90% / 0.9);
+}
+
+.content small {
+  opacity: 0.8;
+}
