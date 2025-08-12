@@ -27,9 +27,9 @@
 }
 
   .nav {
-    max-width: 1200px;
+    max-width: 1800px;
     margin: 0 auto;
-    padding: 1rem 24px;
+    padding: 1.5rem 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -56,23 +56,24 @@
   color: #E94C88;
 }
 
-.navButton.active {
-  color: #E94C88;
-}
+    .navButton.active {
+    color: #E94C88;
+  }
 
-.navUnderline {
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #7C6DFF 0%, #00D4FF 100%);
-  transition: width 0.3s ease;
-}
+  .navUnderline {
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #7C6DFF 0%, #00D4FF 100%);
+    transition: width 0.3s ease;
+  }
 
-.navButton:hover .navUnderline {
-  width: 100%;
-}
+  .navButton:hover .navUnderline,
+  .navButton.active .navUnderline {
+    width: 100%;
+  }
 
 .logo {
   font-size: 1.25rem;

@@ -1,7 +1,7 @@
 .shapes {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 20% 30%, rgba(233,76,136,0.3), transparent 50%),
-              radial-gradient(circle at 80% 70%, rgba(39,215,194,0.3), transparent 50%);
+  background: radial-gradient(circle at 20% 30%, rgba(233,76,136,0.3), transparent 25%),
+              radial-gradient(circle at 80% 70%, rgba(39,215,194,0.3), transparent 25%);
   pointer-events: none;
 }

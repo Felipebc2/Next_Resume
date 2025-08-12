@@ -1,8 +1,10 @@
 import heroStyles from "../styles/HeroFelipe.module.css";
+import Shapes from "../components/Shapes";
 
 export default function HeroFelipe() {
   return (
     <section className={heroStyles.page}>
+      <Shapes />
       <header className={heroStyles.header}>
         <nav className={heroStyles.nav}>
           <div className={heroStyles.logo}>
