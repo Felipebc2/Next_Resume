@@ -34,18 +34,57 @@ export default function Header() {
         return () => window.removeEventListener("scroll", onScroll);
     }, [lastScrollY]);
 
+    // Smooth scroll function for navigation links
+    const scrollToSection = (sectionId: string) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            element.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    };
+
     return (
         <header className={`${headerStyles.header} ${scrolled ? headerStyles.scrolled : ""} ${isVisible ? headerStyles.visible : headerStyles.hidden}`}>
-            <div>
-                <a className={headerStyles.dev} href="#top">
+            <div className={headerStyles.container}>
+                <a className={headerStyles.dev} href="#top" onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection('top');
+                }}>
                     felipebc2.dev
                 </a>
                 <nav className={headerStyles.nav}>
-                    <a href="#home">Home</a>
-                    <a href="#projects">Projetos</a>
-                    <a href="#skills">Skills</a>
-                    <a href="#about">Sobre</a>
-                    <a href="#contact">Contato</a>
+                    <button 
+                        className={headerStyles.navLink}
+                        onClick={() => scrollToSection('home')}
+                    >
+                        Home
+                    </button>
+                    <button 
+                        className={headerStyles.navLink}
+                        onClick={() => scrollToSection('projects')}
+                    >
+                        Projetos
+                    </button>
+                    <button 
+                        className={headerStyles.navLink}
+                        onClick={() => scrollToSection('skills')}
+                    >
+                        Skills
+                    </button>
+                    <button 
+                        className={headerStyles.navLink}
+                        onClick={() => scrollToSection('about')}
+                    >
+                        Sobre
+                    </button>
+                    <button 
+                        className={headerStyles.navLink}
+                        onClick={() => scrollToSection('contact')}
+                    >
+                        Contato
+                    </button>
                 </nav>
             </div>
         </header>
