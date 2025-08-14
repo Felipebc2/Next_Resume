@@ -33,8 +33,7 @@ export default function Header() {
         window.addEventListener("scroll", onScroll, { passive: true });
         return () => window.removeEventListener("scroll", onScroll);
     }, [lastScrollY]);
-
-    // Smooth scroll function for navigation links
+    // Smooth scroll
     const scrollToSection = (sectionId: string) => {
         const element = document.getElementById(sectionId);
         if (element) {
@@ -48,12 +47,7 @@ export default function Header() {
     return (
         <header className={`${headerStyles.header} ${scrolled ? headerStyles.scrolled : ""} ${isVisible ? headerStyles.visible : headerStyles.hidden}`}>
             <div className={headerStyles.container}>
-                <a className={headerStyles.dev} href="#top" onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection('top');
-                }}>
-                    felipebc2.dev
-                </a>
+                <a className={headerStyles.logo} href="https://github.com/Felipebc2">felipebc2.dev</a>
                 <nav className={headerStyles.nav}>
                     <button 
                         className={headerStyles.navLink}

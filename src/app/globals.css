@@ -25,9 +25,9 @@
     --muted-foreground: 0 0% 60%;
     
     /* Gradient colors - Actually used */
-    --gradient-start: 320 100% 65%;  /* Pink */
-    --gradient-mid: 260 100% 70%;    /* Purple */
-    --gradient-end: 220 100% 60%;    /* Blue */
+    --gradient-start: 320 100% 65%;  /* Pink - 40% */
+    --gradient-mid: 25 100% 60%;     /* Orange - 40% */
+    --gradient-end: 260 100% 70%;    /* Purple - 20% */
     
     /* Geometric colors - Actually used */
     --geometric-orange: 25 100% 60%;

@@ -73,9 +73,9 @@
       conic-gradient(from 180deg at 60% 60%,
         hsl(var(--gradient-start)),
         transparent 30%,
-        hsl(var(--gradient-mid)),
+        hsl(var(--geometric-orange)),
         transparent 65%,
-        hsl(var(--geometric-orange))),
+        hsl(var(--gradient-end))),
       linear-gradient(120deg, hsl(var(--glass-bg)), transparent);
     border: 1px solid hsl(var(--geometric-cyan));
     margin-bottom: 16px;
