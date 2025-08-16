@@ -6,7 +6,6 @@
     z-index: 10;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    background: var(--header-bg);
     transition: var(--transition-smooth);
   }
 

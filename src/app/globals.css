@@ -1,47 +1,66 @@
 @layer base {
   :root {
-    /* Core colors - Actually used */
-    --background: 0 0% 6%;
+    /* Core colors*/
+    --background: #ffffff;
     --background-secondary: 0 0% 8%;
-    --foreground: 0 0% 96%;
+    --foreground: #171717;
     
-    /* Header colors - Actually used */
+    /* Header colors*/
     --header-bg: #111111;
     --header-scrolled-bg: #0f0f0f;
     
-    /* Card colors - Actually used */
+    /* Card colors*/
     --card: 0 0% 10%;
     --card-foreground: 0 0% 96%;
     --card-glass: 0 0% 12%;
     
-    /* Primary colors - Actually used */
+    /* Primary colors*/
     --primary: 320 100% 65%;
     --primary-foreground: 0 0% 96%;
     --primary-glow: 320 100% 75%;
     
-    /* Border and muted - Actually used */
+    /* Border and muted*/
     --border: 0 0% 20%;
     --muted: 0 0% 20%;
     --muted-foreground: 0 0% 60%;
     
-    /* Gradient colors - Actually used */
+    /* Gradient colors*/
     --gradient-start: 320 100% 65%;  /* Pink - 40% */
     --gradient-mid: 25 100% 60%;     /* Orange - 40% */
     --gradient-end: 260 100% 70%;    /* Purple - 20% */
     
-    /* Geometric colors - Actually used */
+    /* Geometric colors*/
     --geometric-orange: 25 100% 60%;
     --geometric-cyan: 180 100% 60%;
     
-    /* Tech colors - Actually used */
+    /* Tech colors*/
     --tech-bg: 0 0% 12%;
     --tech-border: 0 0% 25%;
     
-    /* Glass colors - Actually used */
+    /* Glass colors*/
     --glass-bg: 0 0% 12%;
     
-    /* Animations - Actually used */
+    /* Animations*/
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Variáveis para o background animado */
+    --accent-h: 210;
+    --accent: hsl(var(--accent-h) 80% 60%);
+    --mx: 0.5;
+    --my: 0.5;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: #0a0a0a;
+      --foreground: #ededed;
+      
+      /* Variáveis para o background animado no modo escuro */
+      --accent-h: 210;
+      --accent: hsl(var(--accent-h) 80% 60%);
+      --mx: 0.5;
+      --my: 0.5;
+    }
   }
 }
 
@@ -52,8 +71,8 @@ body {
 }
 
 body {
-  color: hsl(var(--foreground));
-  background: hsl(var(--background));
+  color: var(--foreground);
+  background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -68,10 +87,10 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: radial-gradient(circle at 1px 1px, hsl(var(--muted)) 1px, transparent 0);
-  background-size: 20px 20px;
+  background-image: radial-gradient(circle at 1px 1px, hsl(var(--muted) / 0.3) 1px, transparent 0);
+  background-size: 30px 30px;
   pointer-events: none;
-  z-index: -1;
+  z-index: -3;
 }
 
 * {
@@ -83,4 +102,34 @@ body::before {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
+/* Background animado com parallax e mudança de cor */
+.bg {
+  position: fixed;
+  inset: 1;
+  z-index: -3;
+  pointer-events: none;
+  background:
+    radial-gradient(1600px 800px at calc(100%*var(--mx)) calc(100%*var(--my)), hsl(var(--accent-h) 80% 14% / 0.9), transparent 60%),
+    radial-gradient(800px 400px at 20% 10%, hsl(330 80% 10% / .6), transparent 60%),
+    radial-gradient(600px 600px at 85% 80%, hsl(200 90% 8% / .6), transparent 55%),
+    linear-gradient(180deg, hsl(240 10% 8%), hsl(240 10% 4%));
+  filter: saturate(1.1);
+  animation: floatBG 24s ease-in-out infinite;
+}
+
+@keyframes floatBG {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -10px, 0);
+  }
 }
