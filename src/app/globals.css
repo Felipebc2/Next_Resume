@@ -1,3 +1,6 @@
+/* Import UI Components CSS */
+@import url('./styles/ui-components.css');
+
 @layer base {
   :root {
     /* Core colors*/
@@ -48,6 +51,8 @@
     --accent: hsl(var(--accent-h) 80% 60%);
     --mx: 0.5;
     --my: 0.5;
+    
+
   }
   
   @media (prefers-color-scheme: dark) {
