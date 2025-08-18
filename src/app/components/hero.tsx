@@ -69,7 +69,7 @@ export default function HeroFelipe() {
         <div className={heroStyles.container}>
           {/* Seção da esquerda com texto */}
           <div className={heroStyles.leftSection}>
-            <h1 className={heroStyles.title}>Felipe B. Castro</h1>
+            <h1 className={heroStyles.title}>Felipe Castro</h1>
             <p className={heroStyles.subtitle}>
               Materializando Ideias em Realidade
             </p>

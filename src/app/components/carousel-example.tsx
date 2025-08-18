@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useCallback, useEffect, useMemo } from 'react';
 import Autoplay from 'embla-carousel-autoplay';
 import {
     Carousel,
@@ -7,17 +8,52 @@ import {
     CarouselItem,
     CarouselNext,
     CarouselPrevious,
+    type CarouselApi,
 } from "./ui";
 
 const mediaItems = [
+  { src: '/demoday2.jpg', name: 'Demoday', type: 'image' },
+  { src: '/Sharebite.mp4', name: 'Hackathon ShareBite', type: 'video' },
+  { src: '/Hackathon.jpeg', name: 'Hackathon Education', type: 'image' },
   { src: '/idpgo-stanford.jpg', name: 'IDP GO', type: 'image' },
   { src: '/idpgo-google.jpeg', name: 'IDP GO', type: 'image' },
-  { src: '/Hackathon.jpeg', name: 'Hackathon Education', type: 'image' },
-  { src: '/Sharebite.mp4', name: 'Hackathon ShareBite', type: 'video' },
-  { src: '/demoday2.jpg', name: 'Demoday', type: 'image' }
 ];
 
 export default function CarouselExample() {
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+
+  const onSelect = useCallback(() => {
+    if (!api) return;
+    setCurrent(api.selectedScrollSnap());
+  }, [api]);
+
+  const scrollTo = useCallback((index: number) => {
+    if (!api) return;
+    api.scrollTo(index);
+  }, [api]);
+
+  // Plugin de autoplay com delay dinâmico
+  const autoplayPlugin = useMemo(() => {
+    const currentItem = mediaItems[current];
+    const delay = currentItem.type === 'video' ? 5800 : 10000;
+    return Autoplay({ delay, stopOnInteraction: true });
+  }, [current]);
+
+  useEffect(() => {
+    if (!api) return;
+
+    onSelect();
+    
+    api.on('select', onSelect);
+    api.on('reInit', onSelect);
+
+    return () => {
+      api.off('select', onSelect);
+      api.off('reInit', onSelect);
+    };
+  }, [api, onSelect]);
+
   return (
     <div className="carousel-example-container">
       <Carousel
@@ -25,10 +61,10 @@ export default function CarouselExample() {
           align: "start",
           loop: true,
         }}
-        plugins={[
-          Autoplay({ delay: 6000, stopOnInteraction: true})
-        ]}
+        plugins={[autoplayPlugin]}
         className="carousel-example"
+        setApi={setApi}
+        onSelect={onSelect}
       >
         <CarouselContent>
           {mediaItems.map((item, index) => (
@@ -65,13 +101,14 @@ export default function CarouselExample() {
         <CarouselNext className="carousel-example-next" />
       </Carousel>
       
-      {/* Indicadores de pontos personalizados */}
-      <div className="carousel-example-dots">
+      {/* Dots Indicator */}
+      <div className="carousel-dots-container">
         {mediaItems.map((_, index) => (
-          <div
+          <button
             key={index}
-            className="carousel-example-dot"
-            aria-label={`Ir para projeto ${index + 1}`}
+            onClick={() => api?.scrollTo(index)}
+            className={`carousel-dot ${index === current ? 'carousel-dot-active' : ''}`}
+            aria-label={`Ir para foto ${index + 1}`}
           />
         ))}
       </div>
