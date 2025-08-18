@@ -4,6 +4,18 @@ import Header from "./header";
 import Link from "next/link";
 import { FaArrowDown } from 'react-icons/fa';
 import { FiDownload } from 'react-icons/fi';
+import LogoLoop from "@/blocks/Animations/LogoLoop/LogoLoop";
+import { SiReact, SiNextdotjs, SiTypescript, SiNodedotjs, SiTailwindcss, SiVercel } from "react-icons/si";
+
+// Dados de exemplo para os logos (usando react-icons como nodes)
+const sampleLogos = [
+  { node: <SiReact />, title: "React", href: "https://react.dev/" },
+  { node: <SiNextdotjs />, title: "Next.js", href: "https://nextjs.org/" },
+  { node: <SiTypescript />, title: "TypeScript", href: "https://www.typescriptlang.org/" },
+  { node: <SiNodedotjs />, title: "Node.js", href: "https://nodejs.org/" },
+  { node: <SiTailwindcss />, title: "Tailwind CSS", href: "https://tailwindcss.com/" },
+  { node: <SiVercel />, title: "Vercel", href: "https://vercel.com/" },
+];
 
 export default function HeroFelipe() {
   return (
@@ -35,6 +47,11 @@ export default function HeroFelipe() {
           <div className={heroStyles.rightSection}>
             <CarouselExample />
           </div>
+        </div>
+
+        {/* LogoLoop na área inferior da seção hero */}
+        <div className={heroStyles.logoLoopContainer}>
+          <LogoLoop logos={sampleLogos} />
         </div>
       </main>
     </section>
