@@ -146,9 +146,8 @@
   position: absolute;
   height: 2rem;
   width: 2rem;
-  border-radius: 50%;
+  border: transparent;
   background-color: hsl(var(--background));
-  border: 1px solid hsl(var(--border));
   color: hsl(var(--foreground));
   display: flex;
   align-items: center;
