@@ -12,8 +12,8 @@ import {
 const mediaItems = [
   { src: '/idpgo-stanford.jpg', name: 'IDP GO', type: 'image' },
   { src: '/idpgo-google.jpeg', name: 'IDP GO', type: 'image' },
-  { src: '/Hackathon.jpeg', name: 'Hackathon v3', type: 'image' },
-  { src: '/HackathonWin.mp4', name: 'Hackathon Organo', type: 'video' },
+  { src: '/Hackathon.jpeg', name: 'Hackathon Education', type: 'image' },
+  { src: '/Sharebite.mp4', name: 'Hackathon ShareBite', type: 'video' },
   { src: '/demoday2.jpg', name: 'Demoday', type: 'image' }
 ];
 
@@ -26,7 +26,7 @@ export default function CarouselExample() {
           loop: true,
         }}
         plugins={[
-          Autoplay({ delay: 12000, stopOnInteraction: true})
+          Autoplay({ delay: 6000, stopOnInteraction: true})
         ]}
         className="carousel-example"
       >
