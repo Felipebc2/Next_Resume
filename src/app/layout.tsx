@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import GradientBG from "./components/gradientBG";
 import "./globals.css";
+import DarkVeil from "@/blocks/Backgrounds/DarkVeil/DarkVeil";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,7 +27,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <GradientBG />
+        <div style={{position: 'relative' }}>
+          <DarkVeil />
+          <GradientBG />
+        </div>
         {children}
       </body>
     </html>
