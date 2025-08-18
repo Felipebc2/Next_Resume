@@ -51,7 +51,7 @@ export default function HeroFelipe() {
 
         {/* LogoLoop na área inferior da seção hero */}
         <div className={heroStyles.logoLoopContainer}>
-          <LogoLoop logos={sampleLogos} />
+          <LogoLoop logos={sampleLogos} width="100vw" />
         </div>
       </main>
     </section>

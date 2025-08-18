@@ -40,7 +40,6 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  gap: 32px;
   max-width: 1400px;
   width: 100%;
 }
@@ -196,13 +195,16 @@
 }
 
 .logoLoopContainer {
-  width: 100%;
+  width: 100vw;
+  position: relative;
+  top: 10vh;
+  margin-left: -50vw;
+  margin-right: -50vw;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 16px 0 8px;
   margin-top: 16px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 /* Responsividade */

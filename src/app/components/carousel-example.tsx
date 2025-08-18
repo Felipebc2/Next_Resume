@@ -26,7 +26,7 @@ export default function CarouselExample() {
           loop: true,
         }}
         plugins={[
-          Autoplay({ delay: 4000, stopOnInteraction: true, stopOnMouseEnter: true })
+          Autoplay({ delay: 2000, stopOnInteraction: true, stopOnMouseEnter: true })
         ]}
         className="carousel-example"
       >
