@@ -226,7 +226,7 @@
 .carousel-example-image-container {
   position: relative;
   overflow: hidden;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   width: 100%;
   height: 100%;
   min-height: 400px;
@@ -242,7 +242,21 @@
   transition: transform 0.3s ease-in-out;
 }
 
+/* Garantir que vídeos tenham o mesmo comportamento das imagens */
+.carousel-example-image-container video.carousel-example-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+
 .carousel-example-image-container:hover .carousel-example-image {
+  transform: scale(1.03);
+  transition: var(--transition-smooth);
+}
+
+/* Aplicar o mesmo hover effect para vídeos */
+.carousel-example-image-container:hover video.carousel-example-image {
   transform: scale(1.03);
   transition: var(--transition-smooth);
 }
