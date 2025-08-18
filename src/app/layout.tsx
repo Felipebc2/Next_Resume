@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-              <body className={`${geistSans.variable} ${geistMono.variable}`} style={{ position: 'relative', width: '100%', height: '100vh'}}>
+              <body className={`${geistSans.variable} ${geistMono.variable}`} style={{ position: 'relative', width: '100%'}}>
         <GradientBG />
         <DarkVeil />
         {children}
