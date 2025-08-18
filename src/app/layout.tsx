@@ -30,8 +30,8 @@ export default function RootLayout({
         <div style={{position: 'relative' }}>
           <DarkVeil />
           <GradientBG />
+          {children}
         </div>
-        {children}
       </body>
     </html>
   );
