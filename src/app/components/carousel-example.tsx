@@ -64,17 +64,6 @@ export default function CarouselExample() {
         <CarouselPrevious className="carousel-example-previous" />
         <CarouselNext className="carousel-example-next" />
       </Carousel>
-      
-      {/* Indicadores de pontos personalizados */}
-      <div className="carousel-example-dots">
-        {mediaItems.map((_, index) => (
-          <div
-            key={index}
-            className="carousel-example-dot"
-            aria-label={`Ir para projeto ${index + 1}`}
-          />
-        ))}
-      </div>
     </div>
   );
 }
