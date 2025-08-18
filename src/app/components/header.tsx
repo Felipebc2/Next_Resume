@@ -148,7 +148,7 @@ export default function Header() {
                         </svg>
                     </a>
                     <a href="mailto:felipeb.castro02@gmail.com" className={headerStyles.socialLink}>
-                        <svg className={headerStyles.socialIcon} viewBox="0 0 24 24" fill="currentColor">
+                        <svg className={headerStyles.socialIcon}>
                             <AiOutlineMail size={25} />
                         </svg>
                     </a>
