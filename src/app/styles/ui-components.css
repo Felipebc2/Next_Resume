@@ -198,8 +198,8 @@
 
 /* Carousel Example Styles */
 .carousel-example-container {
-  width: 75%;
-  height: 75%;
+  width: 60%;
+  height: 60%;
   max-width: 100%;
   margin: 0;
   padding: 5px;
@@ -244,7 +244,8 @@
 }
 
 .carousel-example-image-container:hover .carousel-example-image {
-  transform: scale(1.05);
+  transform: scale(1.03);
+  transition: var(--transition-smooth);
 }
 
 .carousel-example-overlay {

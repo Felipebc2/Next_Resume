@@ -39,7 +39,7 @@
     grid-column: 1;
     font-size: 1.5rem;
     font-weight: 700;
-    background: linear-gradient(90deg, hsl(var(--gradient-start)) 0%, hsl(var(--geometric-orange)) 50%, hsl(var(--gradient-end)) 100%);
+    background: linear-gradient(90deg, hsl(var(--geometric-orange)) 0%, hsl(var(--gradient-start)) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
