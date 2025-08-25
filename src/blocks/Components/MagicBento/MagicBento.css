@@ -11,6 +11,7 @@
   --purple-border: rgba(132, 0, 255, 0.8);
   --border-color: #392e4e;
   --background-dark: #060010;
+  --background-dark-transparency: rgba(0, 0, 0, 0.1);
   color-scheme: light dark;
 }
 
@@ -37,7 +38,6 @@
   padding: 1.25em;
   border-radius: 20px;
   border: 1px solid var(--border-color);
-  background: var(--background-dark);
   font-weight: 300;
   overflow: hidden;
   transition: all 0.3s ease;
@@ -46,6 +46,12 @@
   --glow-y: 50%;
   --glow-intensity: 0;
   --glow-radius: 200px;
+
+  backdrop-filter: blur( 10.5px );
+    -webkit-backdrop-filter: blur( 7.5px );
+  
+  /*Adding the shadow*/
+  box-shadow: 0 8px 32px 0 rgba( 0, 0, 0, 0.18 );
 }
 
 .card:hover {
