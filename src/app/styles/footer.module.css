@@ -7,13 +7,48 @@
     padding: 60px 40px 40px 40px;
     color: white;
     position: relative;
+    /*the alpha value controls the transparency*/
+    background: rgba(0, 0, 0, 0.3);
+    
+    /* This controls the blurring effect*/
+    backdrop-filter: blur( 10.5px );
+        -webkit-backdrop-filter: blur( 7.5px );
+    
+    /*Adding the shadow*/
+    box-shadow: 0 8px 32px 0 rgba( 0, 0, 0, 0.18 );
+    
+    /* Adding our borders*/
+        border-radius: 5px;
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+        z-index: 4;
+}
+
+.footer-col, .footer-col-hero, .footer-col-contact {
+    flex: 1;
+    min-width: 150px;
+    text-align: left;
 }
 
 .footer-col {
+    margin: 20px 90px;
+}
+
+.footer-col-contact {
     flex: 1;
-    min-width: 200px;
-    margin: 0 20px;
+    min-width: 300px;
+    max-width: 300px;
+    margin: 20px 70px;
     text-align: left;
+    margin-left: 0px;
+}
+
+.footer-col-hero {
+    flex: 1;
+    min-width: 300px;
+    max-width: 300px;
+    margin: 20px 70px;
+    text-align: left;
+    margin-right: 150px;
 }
 
 .footer-col-title {
@@ -28,7 +63,7 @@
     transition: var(--transition-smooth);
     position: relative;
     display: inline-block;
-    width: 50%;
+    width: 100%;
     padding-bottom: 10px;
 }
 
@@ -137,8 +172,27 @@
 }
 
 .contact-info a {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 8px;
     margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.contact-info p {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.contact-info a:hover{
+    color: hsl(var(--gradient-start));
+}
+
+.footer-nav-list a:hover{
+    color: hsl(var(--gradient-start));
 }
 
 .email-button {
@@ -188,6 +242,12 @@
 .social-icon:hover {
     background: rgba(255,255,255,0.2);
     transform: translateY(-2px);
+}
+
+.footer-col li a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .copyright {

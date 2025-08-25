@@ -1,10 +1,22 @@
 import footerStyles from "../styles/footer.module.css";
+import { 
+  Mail, 
+  Linkedin, 
+  Github, 
+  MessageCircle, 
+  MapPin, 
+  Phone,
+  Home,
+  User,
+  Briefcase,
+  Contact
+} from "lucide-react";
 
 export default function Footer() {
   return (
     <footer className={footerStyles.footer}>
       {/* Coluna 1 - Brand/Description */}
-      <div className={footerStyles["footer-col"]}>
+      <div className={footerStyles["footer-col-hero"]}>
         <div className={footerStyles["footer-col-title"]}>Felipe Castro</div>
         <div className={footerStyles["footer-col-subtitle"]}>Full-Stack Dev</div>
         <div className={footerStyles["footer-col-description"]}>
@@ -17,46 +29,47 @@ export default function Footer() {
       <div className={footerStyles["footer-col"]}>
         <h4>Contato</h4>
         <div className={footerStyles["contact-info"]}>
-          <p>Brasil</p>
-          <a href="mailto:felipeb.castro02@gmail.com">felipeb.castro02@gmail.com</a>
-          <a href="tel:+5511999999999">+55 (11) 99999-9999</a>
+          <a href="https://www.google.com/maps/place/Bras%C3%ADlia,+DF/@-15.793889,-47.882777,12z/data=!3m1!4b1!4m6!3m5!1s0x935a3ae7e3816311:0x2f2f06586615dff0!8m2!3d-15.793889!4d-47.882777!16s%2Fg%2F11c4028qbp?entry=ttu&g_ep=EgoyMDI1MDIyMi4wIKXMDSoASAFQAw%3D%3D"><MapPin size={16} /> Brasil | Brasília, DF</a>
+          <a href="mailto:felipeb.castro02@gmail.com"><Mail size={16} /> felipeb.castro02@gmail.com</a>
+          <a href="tel:+55 61 999691134"><Phone size={16} /> +55 (61) 99969-1134</a>
         </div>
       </div>
 
       {/* Coluna 3 - Links */}
       <div className={footerStyles["footer-col"]}>
         <h4>Navegação</h4>
-        <ul>
-          <li><a href="#Home">Home</a></li>
-          <li><a href="#About">Skills</a></li>
-          <li><a href="#About">Sobre</a></li>
-          <li><a href="#About">Projetos</a></li>
-          <li><a href="#About">Contato</a></li>
+        <ul className={footerStyles["footer-nav-list"]}>
+          <li><a href="#Home"><Home size={16} /> Home</a></li>
+          <li><a href="#About"><User size={16} /> Skills</a></li>
+          <li><a href="#About"><User size={16} /> Sobre</a></li>
+          <li><a href="#About"><Briefcase size={16} /> Projetos</a></li>
+          <li><a href="#About"><Contact size={16} /> Contato</a></li>
         </ul>
       </div>
 
       {/* Coluna 4 - Newsletter & Social */}
-      <div className={`${footerStyles["footer-col"]} ${footerStyles["contato-direto"]}`}>
-        <h4>Contato Direto</h4>
-        <a 
-          href="mailto:felipeb.castro02@gmail.com" 
-          className={footerStyles["email-button"]}
-        >
-          📧 Enviar Email
-        </a>
+      <div className={`${footerStyles["footer-col-contact"]} ${footerStyles["contato-direto"]}`}>
         
         <div className={footerStyles["social-icons"]}>
           <div className={footerStyles["social-icon"]}>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">💼</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+              <Linkedin size={20} />
+            </a>
           </div>
           <div className={footerStyles["social-icon"]}>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer">🐙</a>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+              <Github size={20} />
+            </a>
           </div>
           <div className={footerStyles["social-icon"]}>
-            <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer">💬</a>
+            <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer">
+              <MessageCircle size={20} />
+            </a>
           </div>
           <div className={footerStyles["social-icon"]}>
-            <a href="mailto:felipeb.castro02@gmail.com">📧</a>
+            <a href="mailto:felipeb.castro02@gmail.com">
+              <Mail size={20} />
+            </a>
           </div>
         </div>
         <div className={footerStyles.copyright}>
