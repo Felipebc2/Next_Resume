@@ -1,6 +1,5 @@
 import heroStyles from "../styles/Hero.module.css";
 import CarouselExample from "./carousel-example";
-import Header from "./header";
 import Link from "next/link";
 import { FaArrowDown } from 'react-icons/fa';
 import { FiDownload } from 'react-icons/fi';
@@ -65,7 +64,6 @@ export default function HeroFelipe() {
   return (
     <section className={heroStyles.page} id="hero">
       <main className={heroStyles.main}>
-        <Header />
         <div className={heroStyles.container}>
           {/* Seção da esquerda com texto */}
           <div className={heroStyles.leftSection}>
