@@ -12,7 +12,7 @@ export default function Home() {
         <Header />
         <Hero />
         <section id="projects"> <MagicBento /> </section>
-        <section id="skills"> <Skills /> </section>
+        <Skills />
         <Footer />
       </main>
     </div>

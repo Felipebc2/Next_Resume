@@ -1,4 +1,23 @@
-.container {
+.containers {
+    display: grid;
+    grid-template-rows: 2fr;
+    grid-template-columns: 50% 50%;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.containerRight {
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.containerLeft {
+    border: 1px solid blue;
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -15,12 +34,26 @@
     margin-bottom: 2rem;
 }
 
-.skillsGrid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+.skillsGridRight {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 0;
     gap: 1.5rem;
     width: 100%;
+    border: 1px solid blue;
 }
+
+.skillsGridLeft {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    gap: 1.5rem;
+    width: 100%;
+    border: 1px solid red;
+}
+
 
 .skillCard {
     display: flex;
@@ -97,7 +130,10 @@
 
 /* Responsive adjustments */
 @media (max-width: 1200px) {
-    .skillsGrid {
+    .skillsGridRight {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .skillsGridLeft {
         grid-template-columns: repeat(2, 1fr);
     }
 }
@@ -113,7 +149,12 @@
         margin-bottom: 1.5rem;
     }
     
-    .skillsGrid {
+    .skillsGridRight {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .skillsGridLeft {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
