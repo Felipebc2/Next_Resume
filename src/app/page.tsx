@@ -3,6 +3,7 @@ import styles from "./page.module.css";
 import MagicBento from "@/blocks/Components/MagicBento/MagicBento";
 import Footer from "./components/footer";
 import Header from "./components/header";
+import Skills from "./components/skills";
 
 export default function Home() {
   return (
@@ -10,7 +11,8 @@ export default function Home() {
       <main className={styles.main}>
         <Header />
         <Hero />
-        <MagicBento />
+        <section id="projects"> <MagicBento /> </section>
+        <section id="skills"> <Skills /> </section>
         <Footer />
       </main>
     </div>

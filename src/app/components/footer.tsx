@@ -52,17 +52,17 @@ export default function Footer() {
         
         <div className={footerStyles["social-icons"]}>
           <div className={footerStyles["social-icon"]}>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+            <a href="www.linkedin.com/in/felipebc2/" target="_blank" rel="noopener noreferrer">
               <Linkedin size={20} />
             </a>
           </div>
           <div className={footerStyles["social-icon"]}>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/Felipebc2" target="_blank" rel="noopener noreferrer">
               <Github size={20} />
             </a>
           </div>
           <div className={footerStyles["social-icon"]}>
-            <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/556199691134" target="_blank" rel="noopener noreferrer">
               <MessageCircle size={20} />
             </a>
           </div>
