@@ -16,6 +16,55 @@
     text-align: left;
 }
 
+.footer-col-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, hsl(var(--geometric-orange)) 0%, hsl(var(--gradient-start)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% 100%;
+    animation: gradientShift 3s ease-in-out infinite, gradientRotate 4s linear infinite;
+    transition: var(--transition-smooth);
+    position: relative;
+    display: inline-block;
+    width: 50%;
+    padding-bottom: 10px;
+}
+
+  @keyframes underlineExpand {
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+.footer-col-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+.footer-col-subtitle {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #a1a1a1;
+    margin: 0;
+    line-height: 0;
+    margin-bottom: 20px;
+}
+
 .footer-col:first-child {
     margin-left: 0;
 }

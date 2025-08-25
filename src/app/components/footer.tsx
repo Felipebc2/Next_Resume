@@ -5,11 +5,12 @@ export default function Footer() {
     <footer className={footerStyles.footer}>
       {/* Coluna 1 - Brand/Description */}
       <div className={footerStyles["footer-col"]}>
-        <h4>Felipe Castro</h4>
-        <p>
-          Full-Stack Developer especializado em React, Next.js, TypeScript e tecnologias modernas de desenvolvimento web. 
-          Transformando ideias em realidade digital.
-        </p>
+        <div className={footerStyles["footer-col-title"]}>Felipe Castro</div>
+        <div className={footerStyles["footer-col-subtitle"]}>Full-Stack Dev</div>
+        <div className={footerStyles["footer-col-description"]}>
+        Este portfólio é mais do que uma vitrine de projetos, é um convite para colaboração. 
+        Estou sempre disponível para desafios e oportunidades.
+        </div>
       </div>
 
       {/* Coluna 2 - Office/Contact */}
