@@ -4,7 +4,7 @@
 
 'use client';
 
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 import { Renderer, Program, Mesh, Triangle, Vec2 } from "ogl";
 import "./DarkVeil.css";
 
@@ -117,35 +117,6 @@ export default function DarkVeil({
   resolutionScale = 1,
 }: Props) {
   const ref = useRef<HTMLCanvasElement>(null);
-  const [dynamicHueShift, setDynamicHueShift] = useState(hueShift);
-
-  // Hook para detectar scroll e ajustar hueShift
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      const windowHeight = window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-      
-      // Calcular a porcentagem de scroll (0 a 1)
-      const scrollProgress = scrollTop / (documentHeight - windowHeight);
-      
-      // Interpolar o hueShift de 293 até 360 baseado no progresso do scroll
-      const newHueShift = 293 + (scrollProgress * (360 - 293));
-      
-      setDynamicHueShift(newHueShift);
-    };
-
-    // Adicionar listener de scroll
-    window.addEventListener('scroll', handleScroll);
-    
-    // Chamar uma vez para definir o valor inicial
-    handleScroll();
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
   useEffect(() => {
     const canvas = ref.current as HTMLCanvasElement;
     const parent = canvas.parentElement as HTMLElement;
@@ -176,7 +147,7 @@ export default function DarkVeil({
       uniforms: {
         uTime: { value: 0 },
         uResolution: { value: new Vec2() },
-        uHueShift: { value: dynamicHueShift },
+        uHueShift: { value: hueShift },
         uNoise: { value: noiseIntensity },
         uScan: { value: scanlineIntensity },
         uScanFreq: { value: scanlineFrequency },
@@ -202,7 +173,7 @@ export default function DarkVeil({
     const loop = () => {
       program.uniforms.uTime.value =
         ((performance.now() - start) / 1000) * speed;
-      program.uniforms.uHueShift.value = dynamicHueShift;
+      program.uniforms.uHueShift.value = hueShift;
       program.uniforms.uNoise.value = noiseIntensity;
       program.uniforms.uScan.value = scanlineIntensity;
       program.uniforms.uScanFreq.value = scanlineFrequency;
@@ -218,7 +189,7 @@ export default function DarkVeil({
       window.removeEventListener("resize", resize);
     };
   }, [
-    dynamicHueShift,
+    hueShift,
     noiseIntensity,
     scanlineIntensity,
     speed,

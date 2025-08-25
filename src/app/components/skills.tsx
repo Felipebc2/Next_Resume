@@ -36,7 +36,7 @@ const hardSkills = [
 ];
 
 // Dados das soft skills
-/*
+
 const softSkills = [
   {
     category: "Comunicação",
@@ -59,7 +59,7 @@ const softSkills = [
     technologies: ["Curiosidade", "Resiliência", "Feedback", "Melhoria Contínua"]
   }
 ];
-*/
+
 
 export default function Skills() {
     // Combinar soft skills e hard skills para criar a grade de 4 colunas
@@ -69,6 +69,31 @@ export default function Skills() {
             <h1 className={styleSkills.mainTitle}>Skills</h1>
             <div className={styleSkills.skillsGrid}>
                 {hardSkills.map((skill) => (
+                    <div key={skill.category} className={`${glassStyle["upper-layer"]} ${styleSkills.skillCard}`}>
+                        <div className={styleSkills.cardHeader}>
+                            <div className={styleSkills.iconContainer}>
+                                {skill.icon}
+                            </div>
+                            <h3 className={styleSkills.cardTitle}>
+                                {skill.category}
+                            </h3>
+                        </div>
+                        
+                        <div className={styleSkills.techContainer}>
+                            {skill.technologies.map((tech) => (
+                                <span
+                                    key={tech}
+                                    className={styleSkills.techBadge}
+                                >
+                                    {tech}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                ))}
+            </div>
+            <div className={styleSkills.skillsGrid}>
+                {softSkills.map((skill) => (
                     <div key={skill.category} className={`${glassStyle["upper-layer"]} ${styleSkills.skillCard}`}>
                         <div className={styleSkills.cardHeader}>
                             <div className={styleSkills.iconContainer}>
