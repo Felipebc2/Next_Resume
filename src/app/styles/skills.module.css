@@ -1,59 +1,78 @@
 .containers {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+.skillsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+}
+
+.skillRow {
     display: grid;
-    grid-template-rows: 2fr;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
     width: 100%;
-    min-height: 100vh;
 }
 
-.containerRight {
-    border: 1px solid red;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    padding: 2rem;
-    width: 100%;
-    min-height: 100vh;
+.softSkillCard {
+    border-left: 3px solid #ec4899;
 }
 
-.containerLeft {
-    border: 1px solid blue;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    padding: 2rem;
-    width: 100%;
-    min-height: 100vh;
+.hardSkillCard {
+    border-left: 3px solid #8b5cf6;
 }
 
-.mainTitle {
+.softSkillCard .iconContainer {
+    background: rgba(236, 72, 153, 0.1);
+    color: #ec4899;
+}
+
+.hardSkillCard .iconContainer {
+    background: rgba(139, 92, 246, 0.1);
+    color: #8b5cf6;
+}
+
+.softSkillCard:hover .iconContainer {
+    background: rgba(236, 72, 153, 0.2);
+    color: #ec4899;
+}
+
+.hardSkillCard:hover .iconContainer {
+    background: rgba(139, 92, 246, 0.2);
+    color: #8b5cf6;
+}
+
+.titles {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+}
+
+.mainTitleLeft {
     font-size: 3rem;
     font-weight: 700;
-    text-align: center;
+    text-align: left;
     color: var(--foreground);
     margin-bottom: 2rem;
+    margin-left: 20rem;
 }
 
-.skillsGridRight {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    right: 0;
-    gap: 1.5rem;
-    width: 100%;
-    border: 1px solid blue;
+.mainTitleRight {
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: right;
+    color: var(--foreground);
+    margin-bottom: 2rem;
+    margin-right: 20rem;
 }
-
-.skillsGridLeft {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    left: 0;
-    gap: 1.5rem;
-    width: 100%;
-    border: 1px solid red;
-}
-
 
 .skillCard {
     display: flex;
@@ -62,6 +81,7 @@
     padding: 1.5rem;
     transition: all 0.3s ease;
     cursor: pointer;
+    min-height: 200px;
 }
 
 .skillCard:hover {
@@ -93,10 +113,7 @@
     height: 1.5rem;
 }
 
-.skillCard:hover .iconContainer {
-    background: rgba(236, 72, 153, 0.2);
-    color: #ec4899;
-}
+/* Removido - agora controlado por .softSkillCard e .hardSkillCard */
 
 .cardTitle {
     font-size: 1.25rem;
@@ -130,16 +147,14 @@
 
 /* Responsive adjustments */
 @media (max-width: 1200px) {
-    .skillsGridRight {
+    .skillRow {
         grid-template-columns: repeat(2, 1fr);
-    }
-    .skillsGridLeft {
-        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
     }
 }
 
 @media (max-width: 768px) {
-    .container {
+    .containers {
         padding: 1rem;
         gap: 1.5rem;
     }
@@ -149,17 +164,13 @@
         margin-bottom: 1.5rem;
     }
     
-    .skillsGridRight {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-
-    .skillsGridLeft {
+    .skillRow {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
     
     .skillCard {
         padding: 1rem;
+        min-height: auto;
     }
 }

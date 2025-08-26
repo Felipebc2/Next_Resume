@@ -36,7 +36,6 @@ const hardSkills = [
 ];
 
 // Dados das soft skills
-
 const softSkills = [
     {
         category: "Comunicação",
@@ -60,67 +59,84 @@ const softSkills = [
     }
 ];
 
-
 export default function Skills() {
-    // Combinar soft skills e hard skills para criar a grade de 4 colunas
+    const createSkillRows = () => {
+        const rows = [];
+        
+        for (let i = 0; i < Math.max(softSkills.length, hardSkills.length); i += 2) {
+            const row = [];
+            
+            for (let j = 0; j < 2 && i + j < softSkills.length; j++) {
+                const skill = softSkills[i + j];
+                row.push(
+                    <div key={`soft-${i + j}`} className={`${glassStyle["upper-layer"]} ${styleSkills.skillCard} ${styleSkills.softSkillCard}`}>
+                        <div className={styleSkills.cardHeader}>
+                            <div className={styleSkills.iconContainer}>
+                                {skill.icon}
+                            </div>
+                            <h3 className={styleSkills.cardTitle}>
+                                {skill.category}
+                            </h3>
+                        </div>
+                        <div className={styleSkills.techContainer}>
+                            {skill.technologies.map((tech) => (
+                                <span
+                                    key={tech}
+                                    className={styleSkills.techBadge}
+                                >
+                                    {tech}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                );
+            }
+            
+            // Adicionar 2 hard skills (se disponíveis)
+            for (let j = 0; j < 2 && i + j < hardSkills.length; j++) {
+                const skill = hardSkills[i + j];
+                row.push(
+                    <div key={`hard-${i + j}`} className={`${glassStyle["upper-layer"]} ${styleSkills.skillCard} ${styleSkills.hardSkillCard}`}>
+                        <div className={styleSkills.cardHeader}>
+                            <div className={styleSkills.iconContainer}>
+                                {skill.icon}
+                            </div>
+                            <h3 className={styleSkills.cardTitle}>
+                                {skill.category}
+                            </h3>
+                        </div>
+                        <div className={styleSkills.techContainer}>
+                            {skill.technologies.map((tech) => (
+                                <span
+                                    key={tech}
+                                    className={styleSkills.techBadge}
+                                >
+                                    {tech}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                );
+            }
+            
+            rows.push(
+                <div key={`row-${i}`} className={styleSkills.skillRow}>
+                    {row}
+                </div>
+            );
+        }
+        
+        return rows;
+    };
 
     return (
         <section id="skills" className={styleSkills.containers}>
-                        <div className={styleSkills.containerLeft}>
-                <h1 className={styleSkills.mainTitle}>Soft Skills</h1>
-                <div className={styleSkills.skillsGridLeft}>
-                    {softSkills.map((skill) => (
-                        <div key={skill.category} className={`${glassStyle["upper-layer"]} ${styleSkills.skillCard}`}>
-                            <div className={styleSkills.cardHeader}>
-                                <div className={styleSkills.iconContainer}>
-                                    {skill.icon}
-                                </div>
-                                <h3 className={styleSkills.cardTitle}>
-                                    {skill.category}
-                                </h3>
-                            </div>
-
-                            <div className={styleSkills.techContainer}>
-                                {skill.technologies.map((tech) => (
-                                    <span
-                                        key={tech}
-                                        className={styleSkills.techBadge}
-                                    >
-                                        {tech}
-                                    </span>
-                                ))}
-                            </div>
-                        </div>
-                    ))}
-                </div>
+            <div className={styleSkills.titles}>
+                <h1 className={styleSkills.mainTitleLeft}>Soft Skills</h1>
+                <h1 className={styleSkills.mainTitleRight}>Hard Skills</h1>           
             </div>
-            <div className={styleSkills.containerRight}>
-                <h1 className={styleSkills.mainTitle}>Hard Skills</h1>
-                <div className={styleSkills.skillsGridRight}>
-                    {hardSkills.map((skill) => (
-                        <div key={skill.category} className={`${glassStyle["upper-layer"]} ${styleSkills.skillCard}`}>
-                            <div className={styleSkills.cardHeader}>
-                                <div className={styleSkills.iconContainer}>
-                                    {skill.icon}
-                                </div>
-                                <h3 className={styleSkills.cardTitle}>
-                                    {skill.category}
-                                </h3>
-                            </div>
-
-                            <div className={styleSkills.techContainer}>
-                                {skill.technologies.map((tech) => (
-                                    <span
-                                        key={tech}
-                                        className={styleSkills.techBadge}
-                                    >
-                                        {tech}
-                                    </span>
-                                ))}
-                            </div>
-                        </div>
-                    ))}
-                </div>
+            <div className={styleSkills.skillsContainer}>
+                {createSkillRows()}
             </div>
         </section>
     );
