@@ -1,5 +1,8 @@
 import styleSkills from "../styles/skills.module.css";
 import glassStyle from "../styles/glass.module.css";
+import ScrollFloat from "@/blocks/TextAnimations/ScrollFloat/ScrollFloat";
+
+
 import {
     Globe,
     Database,
@@ -132,8 +135,21 @@ export default function Skills() {
     return (
         <section id="skills" className={styleSkills.containers}>
             <div className={styleSkills.titles}>
-                <h1 className={styleSkills.mainTitleLeft}>Soft Skills</h1>
-                <h1 className={styleSkills.mainTitleRight}>Hard Skills</h1>           
+                <h1 className={styleSkills.mainTitleLeft}>
+                    Soft Skills
+                </h1>
+                <h1 className={styleSkills.mainTitleRight}>
+                    <ScrollFloat
+                        animationDuration={1}
+                        ease='back.inOut(2)'
+                        scrollStart='center bottom+=50%'
+                        scrollEnd='bottom bottom-=40%'
+                        stagger={0.05}
+                    >
+                    Hard Skills
+                    </ScrollFloat>
+
+                </h1>           
             </div>
             <div className={styleSkills.skillsContainer}>
                 {createSkillRows()}
