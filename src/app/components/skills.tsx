@@ -215,7 +215,6 @@ export default function Skills() {
                 );
             }
             
-            // Adicionar 2 hard skills (se disponíveis)
             for (let j = 0; j < 2 && i + j < hardSkills.length; j++) {
                 const skill = hardSkills[i + j];
                 row.push(
