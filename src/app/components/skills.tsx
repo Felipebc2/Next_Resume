@@ -92,7 +92,7 @@ const softSkills = [
         technologies: ["Gerenciamento de Prioridades", "Entregas Rápidas", "Pensamento Estratégico e Analítico", "Gestão de Tempo"]
     },
     {
-        category: "Resolução",
+        category: "Resolução de Problemas",
         icon: <Users className="w-6 h-6" />,
         technologies: ["Base Lógica Sólida", "Atenção a Detalhes", "Flexibilidade"]
     },
@@ -121,9 +121,20 @@ const softSkills = [
 
 export default function Skills() {
     const [showAllSkills, setShowAllSkills] = useState(false);
+    const [isHiding, setIsHiding] = useState(false);
 
     const toggleSkills = () => {
-        setShowAllSkills(!showAllSkills);
+        if (showAllSkills) {
+            // Iniciar animação de saída
+            setIsHiding(true);
+            // Aguardar a animação terminar antes de esconder
+            setTimeout(() => {
+                setShowAllSkills(false);
+                setIsHiding(false);
+            }, 500); // Ajustado para 500ms para sincronizar com as animações CSS
+        } else {
+            setShowAllSkills(true);
+        }
     };
 
     const createMainSkillRows = () => {
@@ -177,7 +188,11 @@ export default function Skills() {
             for (let j = 0; j < 2 && i + j < softSkills.length; j++) {
                 const skill = softSkills[i + j];
                 row.push(
-                    <div key={`soft-${i + j}`} className={`${glassStyle["upper-layer"]} ${styleSkills.skillCard} ${styleSkills.softSkillCard}`}>
+                    <div 
+                        key={`soft-${i + j}`} 
+                        className={`${glassStyle["upper-layer"]} ${styleSkills.skillCard} ${styleSkills.softSkillCard} ${styleSkills.skillCardAnimated}`}
+                        style={{ animationDelay: `${(i + j) * 0.1}s` }}
+                    >
                         <div className={styleSkills.cardHeader}>
                             <div className={styleSkills.iconContainer}>
                                 {skill.icon}
@@ -204,7 +219,11 @@ export default function Skills() {
             for (let j = 0; j < 2 && i + j < hardSkills.length; j++) {
                 const skill = hardSkills[i + j];
                 row.push(
-                    <div key={`hard-${i + j}`} className={`${glassStyle["upper-layer"]} ${styleSkills.skillCard} ${styleSkills.hardSkillCard}`}>
+                    <div 
+                        key={`hard-${i + j}`} 
+                        className={`${glassStyle["upper-layer"]} ${styleSkills.skillCard} ${styleSkills.hardSkillCard} ${styleSkills.skillCardAnimated}`}
+                        style={{ animationDelay: `${(i + j + 0.5) * 0.1}s` }}
+                    >
                         <div className={styleSkills.cardHeader}>
                             <div className={styleSkills.iconContainer}>
                                 {skill.icon}
@@ -264,7 +283,7 @@ export default function Skills() {
             {/* Hard e Soft Skills (condicionalmente visíveis) */}
             {showAllSkills && (
                 <>
-                    <div className={styleSkills.titles}>
+                    <div className={`${styleSkills.titles} ${styleSkills.titlesAnimated} ${isHiding ? styleSkills.titlesHiding : ''}`}>
                         <h1 className={styleSkills.mainTitleLeft}>
                             Soft Skills
                         </h1>
@@ -272,7 +291,7 @@ export default function Skills() {
                             Hard Skills
                         </h1>           
                     </div>
-                    <div className={styleSkills.skillsContainer}>
+                    <div className={`${styleSkills.skillsContainer} ${isHiding ? styleSkills.skillsHiding : ''}`}>
                         {createSkillRows()}
                     </div>
                 </>
