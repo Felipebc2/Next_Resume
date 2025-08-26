@@ -1,6 +1,5 @@
 import styleSkills from "../styles/skills.module.css";
 import glassStyle from "../styles/glass.module.css";
-import ScrollFloat from "@/blocks/TextAnimations/ScrollFloat/ScrollFloat";
 
 
 import {
@@ -139,16 +138,7 @@ export default function Skills() {
                     Soft Skills
                 </h1>
                 <h1 className={styleSkills.mainTitleRight}>
-                    <ScrollFloat
-                        animationDuration={1}
-                        ease='back.inOut(2)'
-                        scrollStart='center bottom+=50%'
-                        scrollEnd='bottom bottom-=40%'
-                        stagger={0.05}
-                    >
                     Hard Skills
-                    </ScrollFloat>
-
                 </h1>           
             </div>
             <div className={styleSkills.skillsContainer}>
