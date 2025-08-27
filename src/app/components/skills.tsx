@@ -280,7 +280,7 @@ export default function Skills() {
 
                 {/* Hard e Soft Skills (condicionalmente visíveis) */}
                 <div 
-                    className={`transition-all duration-2000 ease-in-out overflow-hidden ${
+                    className={`transition-all duration-1500 ease-in-out overflow-hidden ${
                         showAllSkills ? 'opacity-100' : 'opacity-0'
                     }`}
                     style={{
@@ -288,7 +288,7 @@ export default function Skills() {
                         opacity: showAllSkills ? 1 : 0,
                         transitionProperty: 'max-height, opacity',
                         transitionTimingFunction: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-                        transitionDuration: '1s',
+                        transitionDuration: '0.5s',
                         pointerEvents: showAllSkills ? 'auto' : 'none'
                     }}
                 >
