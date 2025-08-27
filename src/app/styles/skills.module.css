@@ -5,6 +5,7 @@
     min-height: 45vh;
     padding: 2rem;
     gap: 2rem;
+    transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Main Skills Container */
@@ -119,11 +120,6 @@
     flex-direction: column;
     gap: 2rem;
     width: 100%;
-    animation: fadeIn 0.5s ease-out;
-}
-
-.skillsHiding {
-    animation: fadeOut 0.1s ease-in forwards;
 }
 
 @keyframes fadeIn {
@@ -144,73 +140,48 @@
     }
 }
 
-/* Animações para Títulos */
-.titlesAnimated {
-    animation: slideInFromTop 0.4s ease-out;
-}
-
-.titlesHiding {
-    animation: slideOutToTop 0.5s ease-in forwards;
-}
-
-/* Animações para Skill Cards */
-.skillCardAnimated {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: slideInFromBottom 0.6s ease-out forwards;
-}
-
-/* Animações de saída */
-.skillsHiding {
-    animation: fadeOut 0.5s ease-in forwards;
-}
-
-.skillsHiding .skillCardAnimated {
-    animation: slideOutToBottom 0.5s ease-in forwards;
-}
-
-/* Keyframes para as animações */
+/* Keyframes para as animações - DESABILITADAS */
 @keyframes slideInFromTop {
     0% {
         opacity: 0;
-        transform: translateY(-30px) --transition-smooth;
+        transform: translateY(-30px);
     }
     100% {
         opacity: 1;
-        transform: translateY(0) --transition-smooth;
+        transform: translateY(0);
     }
 }
 
 @keyframes slideOutToTop {
     0% {
         opacity: 1;
-        transform: translateY(0) --transition-smooth;
+        transform: translateY(0);
     }
     100% {
         opacity: 0;
-        transform: translateY(-30px) --transition-smooth;
+        transform: translateY(-30px);
     }
 }
 
 @keyframes slideInFromBottom {
     0% {
         opacity: 0;
-        transform: translateY(30px) --transition-smooth;
+        transform: translateY(30px);
     }
     100% {
         opacity: 1;
-        transform: translateY(0) --transition-smooth;
+        transform: translateY(0);
     }
 }
 
 @keyframes slideOutToBottom {
     0% {
         opacity: 1;
-        transform: translateY(0) --transition-smooth;
+        transform: translateY(0);
     }
     100% {
         opacity: 0;
-        transform: translateY(30px) --transition-smooth;
+        transform: translateY(30px);
     }
 }
 

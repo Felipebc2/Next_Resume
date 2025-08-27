@@ -2,7 +2,7 @@
 
 import styleSkills from "../styles/skills.module.css";
 import glassStyle from "../styles/glass.module.css";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 import {
     Globe,
@@ -122,19 +122,13 @@ const softSkills = [
 export default function Skills() {
     const [showAllSkills, setShowAllSkills] = useState(false);
     const [isHiding, setIsHiding] = useState(false);
+    
+    // Alturas fixas predefinidas
+    const collapsedHeight = 400; // Altura quando recolhido
+    const expandedHeight = 1200; // Altura quando expandido
 
     const toggleSkills = () => {
-        if (showAllSkills) {
-            // Iniciar animação de saída
-            setIsHiding(true);
-            // Aguardar a animação terminar antes de esconder
-            setTimeout(() => {
-                setShowAllSkills(false);
-                setIsHiding(false);
-            }, 500); // Ajustado para 500ms para sincronizar com as animações CSS
-        } else {
-            setShowAllSkills(true);
-        }
+        setShowAllSkills(!showAllSkills);
     };
 
     const createMainSkillRows = () => {
@@ -256,7 +250,15 @@ export default function Skills() {
     };
 
     return (
-        <section id="skills" className={styleSkills.containers}>
+        <section 
+            id="skills" 
+            className={styleSkills.containers}
+            style={{
+                height: showAllSkills ? expandedHeight : collapsedHeight,
+                transition: 'height 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+                overflow: 'hidden'
+            }}
+        >
             {/* Main Skills */}
             <div className={styleSkills.mainSkillsContainer}>
                 {createMainSkillRows()}
@@ -280,21 +282,30 @@ export default function Skills() {
             </div>
 
             {/* Hard e Soft Skills (condicionalmente visíveis) */}
-            {showAllSkills && (
-                <>
-                    <div className={`${styleSkills.titles} ${styleSkills.titlesAnimated} ${isHiding ? styleSkills.titlesHiding : ''}`}>
-                        <h1 className={styleSkills.mainTitleLeft}>
-                            Soft Skills
-                        </h1>
-                        <h1 className={styleSkills.mainTitleRight}>
-                            Hard Skills
-                        </h1>           
-                    </div>
-                    <div className={`${styleSkills.skillsContainer} ${isHiding ? styleSkills.skillsHiding : ''}`}>
-                        {createSkillRows()}
-                    </div>
-                </>
-            )}
+            <div 
+                style={{
+                    opacity: showAllSkills ? 1 : 0,
+                    transform: showAllSkills ? 'translateY(0)' : 'translateY(20px)',
+                    transition: 'opacity 0.5s ease, transform 0.5s ease',
+                    pointerEvents: showAllSkills ? 'auto' : 'none'
+                }}
+            >
+                {showAllSkills && (
+                    <>
+                        <div className={`${styleSkills.titles} ${styleSkills.titlesAnimated} ${isHiding ? styleSkills.titlesHiding : ''}`}>
+                            <h1 className={styleSkills.mainTitleLeft}>
+                                Soft Skills
+                            </h1>
+                            <h1 className={styleSkills.mainTitleRight}>
+                                Hard Skills
+                            </h1>           
+                        </div>
+                        <div className={`${styleSkills.skillsContainer} ${isHiding ? styleSkills.skillsHiding : ''}`}>
+                            {createSkillRows()}
+                        </div>
+                    </>
+                )}
+            </div>
         </section>
     );
 }
