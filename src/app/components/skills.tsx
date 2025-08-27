@@ -124,8 +124,8 @@ export default function Skills() {
     const [isHiding, setIsHiding] = useState(false);
     
     // Alturas fixas predefinidas
-    const collapsedHeight = 400; // Altura quando recolhido
-    const expandedHeight = 1800; // Altura quando expandido
+    const collapsedHeight = 300; // Altura quando recolhido
+    const expandedHeight = 1700; // Altura quando expandido
 
     const toggleSkills = () => {
         setShowAllSkills(!showAllSkills);
@@ -250,62 +250,67 @@ export default function Skills() {
     };
 
     return (
-        <section 
-            id="skills" 
-            className={styleSkills.containers}
-            style={{
-                height: showAllSkills ? expandedHeight : collapsedHeight,
-                transition: 'height 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
-                overflow: 'hidden'
-            }}
-        >
-            {/* Main Skills */}
-            <div className={styleSkills.mainSkillsContainer}>
-                {createMainSkillRows()}
-            </div>
-
-            {/* Botão para expandir/recolher */}
-            <div className={styleSkills.expandButtonContainer}>
-                <button 
-                    onClick={toggleSkills}
-                    className={styleSkills.expandButton}
-                >
-                    <span className={styleSkills.expandText}>Clique para ver mais skills</span>
-                    <div className={styleSkills.eyeIconContainer}>
-                        {showAllSkills ? (
-                            <Eye className={`${styleSkills.eyeIcon} ${styleSkills.eyeOpen}`} />
-                        ) : (
-                            <EyeOff className={`${styleSkills.eyeIcon} ${styleSkills.eyeClosed}`} />
-                        )}
-                    </div>
-                </button>
-            </div>
-
-            {/* Hard e Soft Skills (condicionalmente visíveis) */}
-            <div 
+        <>
+            <section 
+                id="skills" 
+                className={styleSkills.containers}
                 style={{
-                    opacity: showAllSkills ? 1 : 0,
-                    transform: showAllSkills ? 'translateY(0)' : 'translateY(20px)',
-                    transition: 'opacity 0.5s ease, transform 0.5s ease',
-                    pointerEvents: showAllSkills ? 'auto' : 'none'
+                    height: showAllSkills ? expandedHeight : collapsedHeight,
+                    transition: 'height 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+                    overflow: 'hidden'
                 }}
             >
-                {showAllSkills && (
-                    <>
-                        <div className={`${styleSkills.titles} ${styleSkills.titlesAnimated} ${isHiding ? styleSkills.titlesHiding : ''}`}>
-                            <h1 className={styleSkills.mainTitleLeft}>
-                                Soft Skills
-                            </h1>
-                            <h1 className={styleSkills.mainTitleRight}>
-                                Hard Skills
-                            </h1>           
+                {/* Main Skills */}
+                <div className={styleSkills.mainSkillsContainer}>
+                    {createMainSkillRows()}
+                </div>
+
+                {/* Botão para expandir/recolher */}
+                <div className={styleSkills.expandButtonContainer}>
+                    <button 
+                        onClick={toggleSkills}
+                        className={styleSkills.expandButton}
+                    >
+                        <span className={styleSkills.expandText}>Clique para ver mais skills</span>
+                        <div className={styleSkills.eyeIconContainer}>
+                            {showAllSkills ? (
+                                <Eye className={`${styleSkills.eyeIcon} ${styleSkills.eyeOpen}`} />
+                            ) : (
+                                <EyeOff className={`${styleSkills.eyeIcon} ${styleSkills.eyeClosed}`} />
+                            )}
                         </div>
-                        <div className={`${styleSkills.skillsContainer} ${isHiding ? styleSkills.skillsHiding : ''}`}>
-                            {createSkillRows()}
-                        </div>
-                    </>
-                )}
-            </div>
-        </section>
+                    </button>
+                </div>
+
+                {/* Hard e Soft Skills (condicionalmente visíveis) */}
+                <div 
+                    style={{
+                        opacity: showAllSkills ? 1 : 0,
+                        transform: showAllSkills ? 'translateY(0)' : 'translateY(20px)',
+                        transition: 'opacity 0.5s ease, transform 0.5s ease',
+                        pointerEvents: showAllSkills ? 'auto' : 'none'
+                    }}
+                >
+                    {showAllSkills && (
+                        <>
+                            <div className={`${styleSkills.titles} ${styleSkills.titlesAnimated} ${isHiding ? styleSkills.titlesHiding : ''}`}>
+                                <h1 className={styleSkills.mainTitleLeft}>
+                                    Soft Skills
+                                </h1>
+                                <h1 className={styleSkills.mainTitleRight}>
+                                    Hard Skills
+                                </h1>           
+                            </div>
+                            <div className={`${styleSkills.skillsContainer} ${isHiding ? styleSkills.skillsHiding : ''}`}>
+                                {createSkillRows()}
+                            </div>
+                        </>
+                    )}
+                </div>
+            </section>
+
+            {/* Gradient Line - sempre visível, fora da seção com overflow hidden */}
+            <div className={styleSkills.gradientLine}></div>
+        </>
     );
 }

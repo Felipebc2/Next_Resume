@@ -45,7 +45,7 @@
 .expandButtonContainer {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: row;
     margin: 1rem 0;
 }
 
@@ -344,4 +344,18 @@
         padding: 1rem;
         min-height: auto;
     }
+}
+
+.gradientLine {
+    width: 95%;
+    height: 3px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, hsl(var(--gradient-start)) 0%, hsl(var(--geometric-orange)) 50%, hsl(var(--gradient-end)) 100%);
+    position: relative;
+    z-index: 10;
+    margin-top: auto;
+    flex-shrink: 0;
+    margin-left: 2.5%;
+    margin-bottom: 3vh;
+    margin-top: -3vh;
 }
