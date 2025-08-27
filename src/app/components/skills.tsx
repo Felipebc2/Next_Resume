@@ -123,9 +123,7 @@ export default function Skills() {
     const [showAllSkills, setShowAllSkills] = useState(false);
     const [isHiding, setIsHiding] = useState(false);
     
-    // Alturas fixas predefinidas
-    const collapsedHeight = 300; // Altura quando recolhido
-    const expandedHeight = 1700; // Altura quando expandido
+
 
     const toggleSkills = () => {
         setShowAllSkills(!showAllSkills);
@@ -255,8 +253,6 @@ export default function Skills() {
                 id="skills" 
                 className={styleSkills.containers}
                 style={{
-                    height: showAllSkills ? expandedHeight : collapsedHeight,
-                    transition: 'height 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
                     overflow: 'hidden'
                 }}
             >
@@ -284,28 +280,29 @@ export default function Skills() {
 
                 {/* Hard e Soft Skills (condicionalmente visíveis) */}
                 <div 
+                    className={`transition-all duration-2000 ease-in-out overflow-hidden ${
+                        showAllSkills ? 'opacity-100' : 'opacity-0'
+                    }`}
                     style={{
+                        maxHeight: showAllSkills ? '2500px' : '0px',
                         opacity: showAllSkills ? 1 : 0,
-                        transform: showAllSkills ? 'translateY(0)' : 'translateY(20px)',
-                        transition: 'opacity 0.5s ease, transform 0.5s ease',
+                        transitionProperty: 'max-height, opacity',
+                        transitionTimingFunction: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+                        transitionDuration: '1s',
                         pointerEvents: showAllSkills ? 'auto' : 'none'
                     }}
                 >
-                    {showAllSkills && (
-                        <>
-                            <div className={`${styleSkills.titles} ${styleSkills.titlesAnimated} ${isHiding ? styleSkills.titlesHiding : ''}`}>
-                                <h1 className={styleSkills.mainTitleLeft}>
-                                    Soft Skills
-                                </h1>
-                                <h1 className={styleSkills.mainTitleRight}>
-                                    Hard Skills
-                                </h1>           
-                            </div>
-                            <div className={`${styleSkills.skillsContainer} ${isHiding ? styleSkills.skillsHiding : ''}`}>
-                                {createSkillRows()}
-                            </div>
-                        </>
-                    )}
+                    <div className={`${styleSkills.titles} ${styleSkills.titlesAnimated} ${isHiding ? styleSkills.titlesHiding : ''}`}>
+                        <h1 className={styleSkills.mainTitleLeft}>
+                            Soft Skills
+                        </h1>
+                        <h1 className={styleSkills.mainTitleRight}>
+                            Hard Skills
+                        </h1>           
+                    </div>
+                    <div className={`${styleSkills.skillsContainer} ${isHiding ? styleSkills.skillsHiding : ''}`}>
+                        {createSkillRows()}
+                    </div>
                 </div>
             </section>
 
