@@ -125,7 +125,7 @@ export default function Skills() {
     
     // Alturas fixas predefinidas
     const collapsedHeight = 400; // Altura quando recolhido
-    const expandedHeight = 1200; // Altura quando expandido
+    const expandedHeight = 1800; // Altura quando expandido
 
     const toggleSkills = () => {
         setShowAllSkills(!showAllSkills);
