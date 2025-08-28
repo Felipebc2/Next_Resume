@@ -2,7 +2,7 @@
 
 import styleSkills from "../styles/skills.module.css";
 import glassStyle from "../styles/glass.module.css";
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 
 import {
     Globe,
@@ -10,9 +10,6 @@ import {
     Smartphone,
     Code,
     Users,
-    Lightbulb,
-    Target,
-    TrendingUp,
     Eye,
     EyeOff
 } from "lucide-react";
@@ -267,7 +264,7 @@ export default function Skills() {
                         onClick={toggleSkills}
                         className={styleSkills.expandButton}
                     >
-                        <span className={styleSkills.expandText}>Clique para ver mais skills</span>
+                        <span className={styleSkills.expandText}>Clique para mais Skills</span>
                         <div className={styleSkills.eyeIconContainer}>
                             {showAllSkills ? (
                                 <Eye className={`${styleSkills.eyeIcon} ${styleSkills.eyeOpen}`} />

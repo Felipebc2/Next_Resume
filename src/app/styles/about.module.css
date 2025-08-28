@@ -1,0 +1,85 @@
+.container {
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid red;
+    /*the alpha value controls the transparency*/
+        background: rgba(10, 10, 10, 0.6);
+
+    /* This controls the blurring effect*/
+    backdrop-filter: blur(10.5px);
+    -webkit-backdrop-filter: blur(7.5px);
+
+    /*Adding the shadow*/
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.18);
+
+    /* Adding our borders*/
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    z-index: 4;
+    transition: all 0.3s ease;
+}
+
+.leftContainer {
+    left: 0 auto;
+    width: 60%;
+    height: 100%;
+    /* border: 1px solid red; */
+}
+
+.rightContainer {
+    right: 0 auto;
+    width: 40%;
+    height: 100%;
+    /* border: 1px solid blue; */
+}
+
+.title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #fff;
+    text-align: left;
+    margin-left: 100px;
+    margin-top: 60px;
+    letter-spacing: 0.02em;
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+}
+
+.link {
+    background: linear-gradient(90deg, hsl(var(--geometric-orange)) 0%, hsl(var(--gradient-start)) 100%);
+    font-weight: bold;
+    text-decoration: underline;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    cursor: pointer;
+}
+
+.highlight {
+    background: linear-gradient(90deg, hsl(var(--geometric-cyan)) 100%, hsl(var(--gradient-start)) 0%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 500;
+}
+
+.description {
+    width: 80%;
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: #fff;
+    text-align: left;
+    margin-left: 100px;
+    margin-top: 10px;
+}
+
+.bigTechs {
+    background: linear-gradient(90deg, hsl(var(--gradient-end)) 20%, hsl(var(--geometric-orange)) 100%);
+    font-weight: bold;
+    text-decoration: underline;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 1.3rem;
+}

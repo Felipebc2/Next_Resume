@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import GradientBG from "./components/gradientBG";
 import "./globals.css";
 import DarkVeil from "@/blocks/Backgrounds/DarkVeil/DarkVeil";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,10 +27,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-              <body className={`${geistSans.variable} ${geistMono.variable}`} style={{ position: 'relative', width: '100%'}}>
-        <GradientBG />
-        <DarkVeil />
-        {children}
+        <body className={`${geistSans.variable} ${geistMono.variable}`} style={{ position: 'relative', width: '100%'}}>
+          <SpeedInsights />
+          <GradientBG />
+          <DarkVeil />
+          {children}
       </body>
     </html>
   );
