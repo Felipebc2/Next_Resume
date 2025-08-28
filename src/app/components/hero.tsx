@@ -72,7 +72,7 @@ export default function HeroFelipe() {
               Materializando Ideias em Realidade
             </p>
             <p className={heroStyles.description}>
-              Full-Stack Dev <br />
+              Front-end Dev <br />
               Especializado em React, Next.js, TypeScript e tecnologias modernas de desenvolvimento web.
             </p>
             <div className={heroStyles.buttonContainer}>
