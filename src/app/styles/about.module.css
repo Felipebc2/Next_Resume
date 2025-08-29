@@ -59,6 +59,15 @@
     text-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
 }
 
+.curiosity {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    margin-top: 60px;
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.7);   
+}
+
 .allTextsLeftContainer {
     display: flex;
     flex-direction: column;

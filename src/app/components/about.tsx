@@ -25,6 +25,7 @@ export default function Home() {
                     </div>
                 </div>
                 <div className={aboutStyles.rightContainer}>
+                    <h1 className={aboutStyles.curiosity}>Além do Código</h1>
                 </div>
             </div>
         </section>

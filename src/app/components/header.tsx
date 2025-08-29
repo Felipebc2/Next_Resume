@@ -100,8 +100,8 @@ export default function Header() {
     return (
         <header className={`${headerStyles.header} ${scrolled ? headerStyles.scrolled : ""} ${isVisible ? headerStyles.visible : headerStyles.hidden}`}>
             <div className={headerStyles.container}>
-                <div className={headerStyles.logo}>
-                  Felipebc2.dev
+                <div className={headerStyles.logoContainer}>
+                    <h1 className={headerStyles.logo}>Felipebc2.dev</h1>
                 </div>
                 <nav className={headerStyles.nav}>
                     <button 
