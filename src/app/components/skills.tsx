@@ -25,14 +25,14 @@ import {
 
 const mainSkills = [
     {
-        category: "Desenvolvimento",
-        icon: <CodeXml className="w-6 h-6" />,
-        technologies: ["React", "Next.js", "Angular", "Flask", "Nest.js", "Typescript", "N8N", "MongoDB", "Docker", "Azure"]     
-    },
-    {
         category: "Qualidades",
         icon: <User className="w-6 h-6" />,
         technologies: ["Comunicativo", "Lider", "Flexivel", "Organizado", "Mentalidade de Crescimento", "Criatividade"]
+    },
+    {
+        category: "Desenvolvimento",
+        icon: <CodeXml className="w-6 h-6" />,
+        technologies: ["React", "Next.js", "Angular", "Flask", "Nest.js", "Typescript", "N8N", "MongoDB", "Docker", "Azure"]     
     },
 ]
 
@@ -241,6 +241,7 @@ export default function Skills() {
             >
                 {/* Main Skills */}
                 <div className={styleSkills.mainSkillsContainer}>
+                    <h1 className={styleSkills.mainSkillsTitle}>Main Skills</h1>
                     {createMainSkillRows()}
                 </div>
 
