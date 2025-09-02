@@ -194,6 +194,27 @@
   z-index: -1;
 }
 
+.bounceArrow {
+  position: absolute;
+  bottom: 180px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  color: #FF1493; /* DeepPink */
+  animation: float 2s ease-in-out infinite alternate;
+  cursor: pointer;
+  z-index: 10;
+}
+
+@keyframes float {
+  from {
+    transform: translate(-50%, 0);
+  }
+  to {
+    transform: translate(-50%, -10px);
+  }
+}
+
 .logoLoopContainer {
   width: 100vw;
   position: relative;

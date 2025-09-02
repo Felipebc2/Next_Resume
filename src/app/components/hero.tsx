@@ -4,6 +4,7 @@ import heroStyles from "../styles/Hero.module.css";
 import CarouselExample from "./carousel-example";
 import Link from "next/link";
 import { FaArrowDown } from 'react-icons/fa';
+import { FaChevronDown } from 'react-icons/fa';
 import { FiDownload } from 'react-icons/fi';
 import LogoLoop from "@/blocks/Animations/LogoLoop/LogoLoop";
 import { SiReact, SiAngular, SiHtml5, SiPython, SiLua, SiJavascript, SiTypescript, SiScikitlearn, SiMysql, SiMongodb, SiMarkdown, SiGit, SiAnaconda, SiUbuntu, SiDocker, SiReplit, SiApachecassandra, SiVercel, SiBlender, SiAutodeskmaya, SiFigma, SiCanva, SiUnrealengine, SiUnity, SiArduino, SiRaspberrypi, SiRedis, SiFlask, SiFirebase, SiBootstrap, SiApachekafka, SiObsidian, SiRabbitmq, SiTotvs, SiLinux, SiNodedotjs, SiTailwindcss, SiNextdotjs} from 'react-icons/si';
@@ -105,6 +106,11 @@ export default function HeroFelipe() {
           <div className={heroStyles.rightSection}>
             <CarouselExample />
           </div>
+        </div>
+
+        {/* Seta animada */}
+        <div className={heroStyles.bounceArrow} onClick={scrollToProjects}>
+          <FaChevronDown />
         </div>
 
         {/* LogoLoop na área inferior da seção hero */}
