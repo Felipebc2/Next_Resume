@@ -5,36 +5,33 @@ import glassStyle from "../styles/glass.module.css";
 import { useState } from "react";
 
 import {
-    Globe,
     Code,
-    Users,
+    User,
     Eye,
     EyeOff,
     Handshake,
     Flag,
-    NotebookPen,
     Bug,
     LampDesk,
-    Speech,
     Brain,
     Shield,
     DatabaseZap,
-    Microscope,
     FolderLock,
     Bot,
     Plus,
-    Braces
+    Braces,
+    CodeXml
 } from "lucide-react";
 
 const mainSkills = [
     {
         category: "Desenvolvimento",
-        icon: <Globe className="w-6 h-6" />,
+        icon: <CodeXml className="w-6 h-6" />,
         technologies: ["React", "Next.js", "Angular", "Flask", "Nest.js", "Typescript", "N8N", "MongoDB", "Docker", "Azure"]     
     },
     {
         category: "Qualidades",
-        icon: <Users className="w-6 h-6" />,
+        icon: <User className="w-6 h-6" />,
         technologies: ["Comunicativo", "Lider", "Flexivel", "Organizado", "Mentalidade de Crescimento", "Criatividade"]
     },
 ]
@@ -47,14 +44,9 @@ const hardSkills = [
         technologies: ["C", "C++", "C#", "Python", "Java", "JavaScript", "TypeScript", "Lua"]
     },
     {
-        category: "Frontend",
-        icon: <Globe className="w-6 h-6" />,
-        technologies: ["React", "Next.js", "Angular", "HTML/CSS", "Tailwind CSS"]
-    },
-    {
-        category: "Backend",
+        category: "Frontend & Backend",
         icon: <Braces className="w-6 h-6" />,
-        technologies: ["Nest.js", "Flask", "Node.js"]
+        technologies: ["React", "Next.js", "Angular", "HTML/CSS", "Tailwind CSS","Nest.js", "Flask", "Node.js"]
     },
     {
         category: "Database",
@@ -62,19 +54,14 @@ const hardSkills = [
         technologies: ["MongoDB", "MySql", "Redis", "PostgreSQL", "Cassandra", "Supabase"]
     },
     {
-        category: "Data Science",
-        icon: <Microscope className="w-6 h-6" />,
-        technologies: ["Kafka", "SkLearn", "Machine Learning", "Estatística", "LLMs"]
-    },
-    {
         category: "DevOps, Segurança & Infra",
         icon: <FolderLock className="w-6 h-6" />,
-        technologies: ["Docker", "Microsoft Azure", "Vercel", "Linux", "Firebase", "Wireshark", "LGPD"]
+        technologies: ["Docker", "Microsoft Azure", "Vercel", "Linux", "Firebase", "Wireshark", "LGPD", "GDB"]
     },
     {
-        category: "Automação",
+        category: "Data Science, IA & Automação",
         icon: <Bot className="w-6 h-6" />,
-        technologies: ["Power Automate", "N8N"]
+        technologies: ["Power Automate", "N8N", "Kafka", "SkLearn", "Machine Learning", "Estatística", "LLMs"]
     },
     {
         category: "Extras",
@@ -86,53 +73,40 @@ const hardSkills = [
 // Dados das soft skills
 const softSkills = [
     {
+        category: "Resolução de Problemas",
+        icon: <Bug className="w-6 h-6" />,
+        technologies: ["Base Lógica Sólida", "Detalhista", "Flexibilidade", "Gerenciamento"]
+    },
+    {
+        category: "Criatividade",
+        icon: <LampDesk className="w-6 h-6" />,
+        technologies: ["Desenvolvimento de Ideias", "Criatividade em Soluções Técnicas", "Inovação"]
+    },
+    {
+        category: "Aprendizado",
+        icon: <Brain className="w-6 h-6" />,
+        technologies: ["Mentalidade de Crescimento", "Busca Ativa", "Aprendizado Rápido", "Abertura a Feedbacks"]
+    },
+    {
+        category: "Resiliência",
+        icon: <Shield className="w-6 h-6" />,
+        technologies: ["Adaptável", "Dedicado em Desafios", "Bom com Mudanças", "Gestão de Tempo"]
+    },
+    {
         category: "Comunicação",
         icon: <Handshake className="w-6 h-6" />,
-        technologies: ["Proatividade", "Trabalho em Equipe", "Networking", "Abertura a Feedbacks"]
+        technologies: ["Trabalho em Equipe", "Networking", "Experiente em Pitchs", "Paciente", "Comunicação Clara e Efetiva"]
     },
     {
         category: "Liderança",
         icon: <Flag className="w-6 h-6" />,
         technologies: ["Tomada de Decisão", "Colaboração em Times Multidisciplinares", "Gerenciamento de Conflitos", "Gestão de Equipes"]
-    },
-    {
-        category: "Organização",
-        icon: <NotebookPen className="w-6 h-6" />,
-        technologies: ["Gerenciamento de Prioridades", "Entregas Rápidas", "Pensamento Estratégico e Analítico", "Gestão de Tempo"]
-    },
-    {
-        category: "Resolução de Problemas",
-        icon: <Bug className="w-6 h-6" />,
-        technologies: ["Base Lógica Sólida", "Atenção a Detalhes", "Flexibilidade"]
-    },
-    {
-        category: "Criatividade",
-        icon: <LampDesk className="w-6 h-6" />,
-        technologies: ["Desenvolvimento de Ideias", "Criatividade em Soluções Técnicas", "Inovação em Hackathons"]
-    },
-    {
-        category: "Oratória",
-        icon: <Speech className="w-6 h-6" />,
-        technologies: ["Pitchs bem desenvolvidos", "Apresentação Técnica", "Clareza na Comunicação", "Paciente"]
-    },
-    {
-        category: "Aprendizado",
-        icon: <Brain className="w-6 h-6" />,
-        technologies: ["Mentalidade de Crescimento", "Busca Ativa", "Aprendizado Rápido"]
-    },
-    {
-        category: "Resiliência",
-        icon: <Shield className="w-6 h-6" />,
-        technologies: ["Adaptável", "Dedicado em Desafios", "Bom com Mudanças"]
     }
-
 ];
 
 export default function Skills() {
     const [showAllSkills, setShowAllSkills] = useState(false);
-    const [isHiding, setIsHiding] = useState(false);
-    
-
+    const [isHiding] = useState(false);
 
     const toggleSkills = () => {
         setShowAllSkills(!showAllSkills);
