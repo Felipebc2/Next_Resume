@@ -233,6 +233,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  background: linear-gradient(to right, #ec4899, #8b5cf6, #3b82f6);
+  padding: 3px;
+}
+
+.carousel-example-image-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  padding: 3px;
+  background: linear-gradient(45deg, #ec4899, #8b5cf6, #3b82f6);
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
 }
 
 .carousel-example-image {
@@ -240,6 +258,8 @@
   height: 100%;
   object-fit: cover;
   transition: transform 0.3s ease-in-out;
+  border-radius: 0.875rem;
+  background-color: hsl(var(--background));
 }
 
 /* Garantir que vídeos tenham o mesmo comportamento das imagens */
@@ -248,18 +268,11 @@
   height: 100%;
   object-fit: cover;
   transition: transform 0.3s ease-in-out;
+  border-radius: 0.875rem;
+  background-color: hsl(var(--background));
 }
 
-.carousel-example-image-container:hover .carousel-example-image {
-  transform: scale(1.03);
-  transition: var(--transition-smooth);
-}
-
-/* Aplicar o mesmo hover effect para vídeos */
-.carousel-example-image-container:hover video.carousel-example-image {
-  transform: scale(1.03);
-  transition: var(--transition-smooth);
-}
+/* Hover removido */
 
 .carousel-example-overlay {
   position: absolute;
