@@ -31,27 +31,12 @@
     right: 0 auto;
     width: 35%;
     height: 100%;
-    /* border: 1px solid blue; */
-    /*the alpha value controls the transparency*/
-     background: rgba(35, 35, 35, 0.6);
-
-    /* This controls the blurring effect*/
-    backdrop-filter: blur(10.5px);
-    -webkit-backdrop-filter: blur(7.5px);
-
-    /*Adding the shadow*/
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.18);
-
-    /* Adding our borders*/
-    border-radius: 15px;
-    z-index: 4;
-    transition: all 0.3s ease;
 }
 
 .title {
     font-size: 3.5rem;
-    font-weight: 700;
-    color: #fff;
+    font-weight: 500;
+    color: #f2f2f2;
     text-align: left;
     margin-left: 100px;
     margin-top: 60px;
@@ -61,8 +46,8 @@
 
 .curiosity {
     font-size: 3.5rem;
-    font-weight: 700;
-    color: #fff;
+    font-weight: 500;
+    color: #f2f2f2;
     text-align: center;
     margin-top: 60px;
     text-shadow: 0 0 15px rgba(0, 0, 0, 0.7);   

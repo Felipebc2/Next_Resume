@@ -81,10 +81,21 @@ export default function Header() {
     const scrollToSection = (sectionId: string) => {
         const element = document.getElementById(sectionId);
         if (element) {
-            element.scrollIntoView({ 
-                behavior: 'smooth',
-                block: 'start'
-            });
+            if (sectionId === 'projects') {
+                const offsetY = 120;
+                const elementPosition = element.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - offsetY;
+                
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            } else {
+                element.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
         }
     };
 
@@ -101,9 +112,15 @@ export default function Header() {
         <header className={`${headerStyles.header} ${scrolled ? headerStyles.scrolled : ""} ${isVisible ? headerStyles.visible : headerStyles.hidden}`}>
             <div className={headerStyles.container}>
                 <div className={headerStyles.logoContainer}>
-                    <h1 className={headerStyles.logo}>Felipebc2.dev</h1>
+                    <a className={headerStyles.logo} href="https://github.com/Felipebc2" target="_blank" rel="noopener noreferrer">Felipebc2.dev</a>
                 </div>
                 <nav className={headerStyles.nav}>
+                    <button 
+                        className={`${headerStyles.navLink} ${activeSection === 'home' ? headerStyles.active : ''}`}
+                        onClick={scrollToTop}
+                    >
+                        Home
+                    </button>
                     <button 
                         className={`${headerStyles.navLink} ${activeSection === 'projects' ? headerStyles.active : ''}`}
                         onClick={() => scrollToSection('projects')}
@@ -115,12 +132,6 @@ export default function Header() {
                         onClick={() => scrollToSection('skills')}
                     >
                         Skills
-                    </button>
-                    <button 
-                        className={`${headerStyles.navLink} ${activeSection === 'home' ? headerStyles.active : ''}`}
-                        onClick={scrollToTop}
-                    >
-                        Home
                     </button>
                     <button 
                         className={`${headerStyles.navLink} ${activeSection === 'about' ? headerStyles.active : ''}`}

@@ -1,3 +1,5 @@
+"use client";
+
 import heroStyles from "../styles/Hero.module.css";
 import CarouselExample from "./carousel-example";
 import Link from "next/link";
@@ -61,6 +63,20 @@ const sampleLogos = [
 ];
 
 export default function HeroFelipe() {
+  const scrollToProjects = () => {
+    const projectsSection = document.getElementById('projects');
+    if (projectsSection) {
+      const offsetY = 120; // offset de 50px para cima
+      const elementPosition = projectsSection.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offsetY;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <section className={heroStyles.page} id="hero">
       <main className={heroStyles.main}>
@@ -76,9 +92,9 @@ export default function HeroFelipe() {
               Especializado em React, Next.js, TypeScript e tecnologias modernas de desenvolvimento web.
             </p>
             <div className={heroStyles.buttonContainer}>
-              <Link href="#projects" className={heroStyles.button}>
+              <button onClick={scrollToProjects} className={heroStyles.button}>
                 Meus Projetos <FaArrowDown />
-              </Link>
+              </button>
               <Link href="/curriculo.pdf" className={heroStyles.button} download>
                 Download CV <FiDownload />
               </Link>

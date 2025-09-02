@@ -13,8 +13,8 @@ export default function Home() {
         <Header />
         <Hero />
         <section id="projects"> <MagicBento /> </section>
-        <Skills />
-        <About />
+        <section id="skills"> <Skills /> </section>
+        <section id="about"> <About /> </section>
         <Footer />
       </main>
     </div>
