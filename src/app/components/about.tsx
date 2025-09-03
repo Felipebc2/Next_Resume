@@ -1,4 +1,5 @@
 import aboutStyles from "../styles/about.module.css";
+import { Dices } from 'lucide-react';
 
 export default function Home() {
     return (
@@ -26,6 +27,31 @@ export default function Home() {
                 </div>
                 <div className={aboutStyles.rightContainer}>
                     <h1 className={aboutStyles.curiosity}>Além do Código</h1>
+                    <div className={aboutStyles.hobbyList}>
+                        <div className={aboutStyles.hobbyItem}>
+                            <p><Dices className={aboutStyles.hobbyIcon} /><a className={aboutStyles.hobbyTitle}>Mestre de RPG de Mesa </a><a className={aboutStyles.hobbyDescription}>há 8 anos, colocando as ideias do papel em ação.</a></p>
+                        </div>
+                    </div>
+                    <div className={aboutStyles.hobbyList}>
+                        <div className={aboutStyles.hobbyItem}>
+                            <p><Dices className={aboutStyles.hobbyIcon} /><a className={aboutStyles.hobbyTitle}>Jogo Basquete </a><a className={aboutStyles.hobbyDescription}>desde os 13 anos, sendo sempre um armador com visão de jogo.</a></p>
+                        </div>
+                    </div>
+                    <div className={aboutStyles.hobbyList}>
+                        <div className={aboutStyles.hobbyItem}>
+                            <p><Dices className={aboutStyles.hobbyIcon} /><a className={aboutStyles.hobbyTitle}>Apaixonado por jogos</a><a className={aboutStyles.hobbyDescription}>, favoritos: Dark Souls, BG3, Expedition 33 e Hollow Knight.</a></p>
+                        </div>
+                    </div>
+                    <div className={aboutStyles.hobbyList}>
+                        <div className={aboutStyles.hobbyItem}>
+                            <p><Dices className={aboutStyles.hobbyIcon} /><a className={aboutStyles.hobbyTitle}>Música: </a><a className={aboutStyles.hobbyDescription}>Recentemente começando a tocar guitarra e violão. Amo Rock e Metal!</a></p>
+                        </div>
+                    </div>
+                    <div className={aboutStyles.hobbyList}>
+                        <div className={aboutStyles.hobbyItem}>
+                            <p><Dices className={aboutStyles.hobbyIcon} /><a className={aboutStyles.hobbyTitle}>Coleciono Hobbies Aleatórios, </a><a className={aboutStyles.hobbyDescription}>Sempre procurando coisas aleatorias para aprender.</a></p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

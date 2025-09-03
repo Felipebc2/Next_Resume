@@ -1,11 +1,12 @@
 .container {
     width: 100%;
-    height: 55vh;
+    min-height: 55vh;
     display: flex;
     justify-content: center;
     align-items: center;
     /*the alpha value controls the transparency*/
-        background: rgba(10, 10, 10, 0.6);
+    background: rgba(10, 10, 10, 0.6);
+    padding: 2rem 0;
 
     /* This controls the blurring effect*/
     backdrop-filter: blur(10.5px);
@@ -24,13 +25,18 @@
     left: 0 auto;
     width: 60%;
     height: 100%;
-    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .rightContainer {
     right: 0 auto;
     width: 35%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .title {
@@ -39,7 +45,7 @@
     color: #f2f2f2;
     text-align: left;
     margin-left: 100px;
-    margin-top: 60px;
+    margin-bottom: 20px;
     letter-spacing: 0.02em;
     text-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
 }
@@ -48,15 +54,16 @@
     font-size: 3.5rem;
     font-weight: 500;
     color: #f2f2f2;
-    text-align: center;
-    margin-top: 60px;
-    text-shadow: 0 0 15px rgba(0, 0, 0, 0.7);   
+    text-align: left;
+    margin-bottom: 20px;
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    margin-left: 10px;
 }
 
 .allTextsLeftContainer {
     display: flex;
     flex-direction: column;
-    margin-top: 10px;
+    gap: 15px;
 }
 
 .link {
@@ -84,7 +91,6 @@
     color: #fff;
     text-align: left;
     margin-left: 100px;
-    margin-top: 10px;
 }
 
 .bigTechs {
@@ -97,4 +103,128 @@
     background-clip: text;
     font-size: 1.3rem;
     margin-top: 10px;
+}
+
+.hobbyList {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    height: 8%;
+}
+
+.hobbyIcon {
+    display: row;
+    width: 20px;
+    height: 20px;
+    color: hsl(var(--gradient-start));
+    transform: translateY(2.5px);
+    margin-right: 10px;
+}
+
+.hobbyItem {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 12px 15px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.hobbyItem:hover {
+    transform: translateX(5px);
+}
+
+.hobbyTitle {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #f2f2f2;
+}
+
+.hobbyDescription {
+    font-size: 0.95rem;
+    color: #a0a0a0;
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+        padding: 3rem 1rem;
+    }
+
+    .leftContainer,
+    .rightContainer {
+        width: 100%;
+        padding: 2rem 0;
+    }
+
+    .title,
+    .curiosity {
+        font-size: 2.5rem;
+        margin-left: 20px;
+    }
+
+    .description {
+        width: 90%;
+        font-size: 1.1rem;
+        margin-left: 20px;
+    }
+
+    .bigTechs {
+        font-size: 1.1rem;
+        margin-left: 20px;
+    }
+
+    .hobbyList {
+        margin: 0 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .title,
+    .curiosity {
+        font-size: 2rem;
+        margin-left: 15px;
+    }
+
+    .description {
+        font-size: 1rem;
+        margin-left: 15px;
+    }
+
+    .hobbyList {
+        margin-left: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1.5rem 0.5rem;
+    }
+
+    .title,
+    .curiosity {
+        font-size: 1.8rem;
+        margin-left: 10px;
+    }
+
+    .description {
+        width: 95%;
+        font-size: 0.9rem;
+        margin-left: 10px;
+    }
+
+    .bigTechs {
+        font-size: 1rem;
+        margin-left: 10px;
+    }
+
+    .hobbyTitle {
+        font-size: 1rem;
+    }
+
+    .hobbyDescription {
+        font-size: 0.85rem;
+    }
 }
