@@ -33,12 +33,14 @@ export default function CarouselExample() {
     api.scrollTo(index);
   }, [api]);
 
-  // Plugin de autoplay com delay dinâmico
+  // Plugin de autoplay com delay fixo
   const autoplayPlugin = useMemo(() => {
-    const currentItem = mediaItems[current];
-    const delay = currentItem.type === 'video' ? 5800 : 10000;
-    return Autoplay({ delay, stopOnInteraction: true });
-  }, [current]);
+    return Autoplay({ 
+      delay: 5000, // 5 segundos para todos os itens
+      stopOnInteraction: true,
+      playOnInit: true,
+    });
+  }, []);
 
   useEffect(() => {
     if (!api) return;

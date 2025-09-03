@@ -234,7 +234,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  background: linear-gradient(to right, #ec4899, #8b5cf6, #3b82f6);
+  background: linear-gradient(to right, #FF69B4, #9932CC, #FF8C00);
   padding: 3px;
 }
 
@@ -244,7 +244,7 @@
   inset: 0;
   border-radius: 1rem;
   padding: 3px;
-  background: linear-gradient(45deg, #ec4899, #8b5cf6, #3b82f6);
+  background: linear-gradient(45deg, #FF69B4, #9932CC, #FF8C00);
   -webkit-mask: 
     linear-gradient(#fff 0 0) content-box, 
     linear-gradient(#fff 0 0);
@@ -272,7 +272,14 @@
   background-color: hsl(var(--background));
 }
 
-/* Hover removido */
+.carousel-example-image-container:hover .carousel-example-image { 
+  transition: var(--transition-smooth);
+}
+
+/* Aplicar o mesmo hover effect para vídeos */
+.carousel-example-image-container:hover video.carousel-example-image {
+  transition: var(--transition-smooth);
+}
 
 .carousel-example-overlay {
   position: absolute;
