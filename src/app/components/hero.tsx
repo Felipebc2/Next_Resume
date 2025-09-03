@@ -96,7 +96,7 @@ export default function HeroFelipe() {
               <button onClick={scrollToProjects} className={heroStyles.button}>
                 Meus Projetos <FaArrowDown />
               </button>
-              <Link href="/curriculo.pdf" className={heroStyles.button} download>
+              <Link href="/Resume.pdf" target="_blank" rel="noopener noreferrer" className={heroStyles.button}>
                 Download CV <FiDownload />
               </Link>
             </div>

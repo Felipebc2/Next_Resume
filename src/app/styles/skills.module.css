@@ -48,14 +48,13 @@
     display: flex;
     justify-content: center;
     align-items: row;
-    margin: 1rem 0;
+    margin: -1rem 0;
 }
 
 .expandButton {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    padding: 1rem 2rem;
+    padding: 1rem 1rem;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 2rem;
@@ -65,6 +64,11 @@
     backdrop-filter: blur(10px);
 }
 
+.expandButton.closed {
+    background-color: hsl(var(--gradient-start));
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
 .expandButton:hover {
     background: rgba(255, 255, 255, 0.1);
     border-color: rgba(255, 255, 255, 0.2);
@@ -72,10 +76,20 @@
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
+.expandButton.closed:hover {
+    background-color: hsl(var(--gradient-start));
+    filter: brightness(1.1);
+    box-shadow: 0 8px 25px rgba(236, 72, 153, 0.3);
+}
+
 .expandText {
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--foreground);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    letter-spacing: 0.03em;
+    font-weight: 400;
+    color: #b1b1b1;
 }
 
 .eyeIconContainer {
@@ -84,36 +98,27 @@
     justify-content: center;
     width: 2rem;
     height: 2rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
 }
 
 .eyeIcon {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.8rem;
+    height: 1.8rem;
     transition: all 0.3s ease;
-    animation: gentleFloat 2s ease-in-out infinite;
 }
 
 .eyeOpen {
-    color: #10b981;
+    color: hsl(var(--gradient-start));
 }
 
 .eyeClosed {
-    color: #6b7280;
+    color: white;
 }
 
 .eyeIcon:hover {
     transform: scale(1.2);
     filter: brightness(1.2);
-}
-
-/* Animação suave do ícone */
-@keyframes gentleFloat {
-    0%, 100% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-3px);
-    }
 }
 
 /* Transições suaves para o container */

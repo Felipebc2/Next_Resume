@@ -25,14 +25,14 @@ import {
 
 const mainSkills = [
     {
-        category: "Qualidades",
+        category: "Principais Soft Skills",
         icon: <User className="w-6 h-6" />,
-        technologies: ["Comunicativo", "Lider", "Flexivel", "Organizado", "Mentalidade de Crescimento", "Criatividade"]
+        technologies: ["Detalhista", "Gerenciamento de Tempo e Equipes", "Aprendizado Rápido", "Abertura a Feedbacks", "Dedicado em Desafios", "Networking", "Tomada de Decisão", "Experiente em Pitchs"]
     },
     {
-        category: "Desenvolvimento",
+        category: "Principais Hard Skills",
         icon: <CodeXml className="w-6 h-6" />,
-        technologies: ["React", "Next.js", "Angular", "Flask", "Nest.js", "Typescript", "N8N", "MongoDB", "Docker", "Azure"]     
+        technologies: ["Next.js", "React", "Angular", "Flask", "Typescript", "MongoDB", "Docker", "Azure", "Python", "C/C++/C#", "Linux", "Git/Github", "Maya3D/Blender"]     
     },
 ]
 
@@ -246,17 +246,19 @@ export default function Skills() {
                 </div>
 
                 {/* Botão para expandir/recolher */}
+                <span className={styleSkills.expandText}>
+                    {showAllSkills ? "Ocultar detalhes das skills" : "Explorar todas as skills detalhadamente"}
+                </span>
                 <div className={styleSkills.expandButtonContainer}>
                     <button 
                         onClick={toggleSkills}
-                        className={styleSkills.expandButton}
+                        className={`${styleSkills.expandButton} ${showAllSkills ? styleSkills.closed : ''}`}
                     >
-                        <span className={styleSkills.expandText}>Clique para mais Skills</span>
-                        <div className={styleSkills.eyeIconContainer}>
+                        <div className={`${styleSkills.eyeIconContainer} ${showAllSkills ? styleSkills.closed : ''}`}>
                             {showAllSkills ? (
-                                <Eye className={`${styleSkills.eyeIcon} ${styleSkills.eyeOpen}`} />
-                            ) : (
                                 <EyeOff className={`${styleSkills.eyeIcon} ${styleSkills.eyeClosed}`} />
+                            ) : (
+                                <Eye className={`${styleSkills.eyeIcon} ${styleSkills.eyeOpen}`} />
                             )}
                         </div>
                     </button>
