@@ -1,7 +1,6 @@
 "use client";
 
 import styleSkills from "../styles/skills.module.css";
-import glassStyle from "../styles/glass.module.css";
 import { useState } from "react";
 
 import {
@@ -121,7 +120,7 @@ export default function Skills() {
             for (let j = 0; j < 2 && i + j < mainSkills.length; j++) {
                 const skill = mainSkills[i + j];
                 row.push(
-                    <div key={`main-${i + j}`} className={`${glassStyle["upper-layer"]} ${styleSkills.skillCard} ${styleSkills.mainSkillCard}`}>
+                    <div key={`main-${i + j}`} className={`${styleSkills["upper-layer"]} ${styleSkills.skillCard} ${styleSkills.mainSkillCard}`}>
                         <div className={styleSkills.cardHeader}>
                             <div className={styleSkills.iconContainer}>
                                 {skill.icon}
@@ -165,7 +164,7 @@ export default function Skills() {
                 row.push(
                     <div 
                         key={`soft-${i + j}`} 
-                        className={`${glassStyle["upper-layer"]} ${styleSkills.skillCard} ${styleSkills.softSkillCard} ${styleSkills.skillCardAnimated}`}
+                        className={`${styleSkills["upper-layer"]} ${styleSkills.skillCard} ${styleSkills.softSkillCard} ${styleSkills.skillCardAnimated}`}
                         style={{ animationDelay: `${(i + j) * 0.1}s` }}
                     >
                         <div className={styleSkills.cardHeader}>
@@ -195,7 +194,7 @@ export default function Skills() {
                 row.push(
                     <div 
                         key={`hard-${i + j}`} 
-                        className={`${glassStyle["upper-layer"]} ${styleSkills.skillCard} ${styleSkills.hardSkillCard} ${styleSkills.skillCardAnimated}`}
+                        className={`${styleSkills["upper-layer"]} ${styleSkills.skillCard} ${styleSkills.hardSkillCard} ${styleSkills.skillCardAnimated}`}
                         style={{ animationDelay: `${(i + j + 0.5) * 0.1}s` }}
                     >
                         <div className={styleSkills.cardHeader}>
