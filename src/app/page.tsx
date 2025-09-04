@@ -5,6 +5,8 @@ import Footer from "./components/footer";
 import Header from "./components/header";
 import Skills from "./components/skills";
 import About from "./components/about";
+import Experience from "./components/experience";
+import Contact from "./components/contact";
 
 export default function Home() {
   return (
@@ -15,6 +17,8 @@ export default function Home() {
         <section id="projects"> <MagicBento /> </section>
         <section id="skills"> <Skills /> </section>
         <section id="about"> <About /> </section>
+        <section id="experience"> <Experience /> </section>
+        <section id="contact"> <Contact /> </section>
         <Footer />
       </main>
     </div>

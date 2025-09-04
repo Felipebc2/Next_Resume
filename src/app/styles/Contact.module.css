@@ -1,0 +1,86 @@
+.container {
+    width: 100%;
+    min-height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    font-weight: 600;
+    color: #f2f2f2;
+    text-align: center;
+    margin: 80px 0 10px 0;
+    letter-spacing: 0.02em;
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+}
+
+.description {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #f2f2f2;
+    text-align: center;
+    margin-bottom: 20px;
+    color: hsl(var(--muted-foreground));
+}
+
+.contactContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.contactIcon {
+    width: 50px;
+    height: 50px;
+    color: hsl(var(--gradient-start));
+    padding: 10px;
+}
+
+.contactText {
+    font-size: 1.1rem;
+    color: #f2f2f2;
+    text-align: center;
+}
+
+.contactItem {
+    min-width: 250px;
+    display: flex;
+    position: relative;
+    height: auto;
+    min-height: 200px;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    gap: 15px;
+  
+    /*the alpha value controls the transparency*/
+    background: rgba(10, 10, 10, 0.3);
+  
+    /* This controls the blurring effect*/
+    backdrop-filter: blur( 10.5px );
+    -webkit-backdrop-filter: blur( 7.5px );
+  
+    /*Adding the shadow*/
+    box-shadow: 0 8px 32px 0 rgba( 0, 0, 0, 0.18 );
+  
+    /* Adding our borders*/
+    border-radius: 16px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    z-index: 4;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.contactItem:hover {
+    transform: translateY(-5px);
+    background: rgba(0, 0, 0, 0.4);
+}
