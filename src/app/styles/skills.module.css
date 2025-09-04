@@ -395,7 +395,7 @@
     border-radius: 10px;
     background: linear-gradient(90deg, hsl(var(--gradient-start)) 0%, hsl(var(--geometric-orange)) 50%, hsl(var(--gradient-end)) 100%);
     position: relative;
-    z-index: 10;
+    z-index: 5;
     margin-top: auto;
     flex-shrink: 0;
     margin-left: 2.5%;

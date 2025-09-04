@@ -55,8 +55,14 @@
 }
 
 .card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 35px rgba(132, 0, 255, 0.25), 0 0 20px rgba(132, 0, 255, 0.1);
+  border-color: rgba(132, 0, 255, 0.6);
+}
+
+.card:active {
+  transform: translateY(-2px) scale(1.01);
+  transition: all 0.1s ease;
 }
 
 .card__header,
@@ -67,8 +73,9 @@
 }
 
 .card__header {
-  gap: 0.75em;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 0.5em;
+  margin-bottom: 0.5em;
 }
 
 .card__content {
@@ -76,7 +83,22 @@
 }
 
 .card__label {
-  font-size: 16px;
+  font-size: 20px;
+  font-weight: 600;
+  position: relative;
+  color: rgba(255, 255, 255, 1);
+  text-shadow: 0 2px 8px rgba(132, 0, 255, 0.3);
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+  transition: all 0.3s ease;
+}
+
+
+.card:hover .card__label {
+  color: rgba(132, 0, 255, 1);
+  text-shadow: 0 4px 12px rgba(132, 0, 255, 0.6);
+  transform: translateY(-1px);
+  transition: all 0.3s ease;
 }
 
 .card__title,
@@ -86,15 +108,20 @@
 }
 
 .card__title {
-  font-weight: 400;
-  font-size: 16px;
-  margin: 0 0 0.25em;
+  font-weight: 500;
+  font-size: 18px;
+  margin: 0 0 0.5em;
+  color: rgba(255, 255, 255, 0.95);
+  letter-spacing: 0.5px;
 }
 
 .card__description {
-  font-size: 12px;
-  line-height: 1.2;
-  opacity: 0.9;
+  font-size: 13px;
+  line-height: 1.4;
+  opacity: 0.85;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  padding-top: 0;
 }
 
 .card--text-autohide .card__title,
@@ -216,4 +243,194 @@
 .bento-section {
   position: relative;
   user-select: none;
+}
+
+/* Badges de tecnologia */
+.card__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4em;
+  margin-top: auto;
+  margin-bottom: 0.8em;
+  padding-top: 0.5em;
+}
+
+.card__badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3em 0.6em;
+  background: rgba(132, 0, 255, 0.15);
+  border: 1px solid rgba(132, 0, 255, 0.3);
+  border-radius: 12px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  user-select: none;
+}
+
+.card__badge:hover {
+  background: rgba(132, 0, 255, 0.25);
+  border-color: rgba(132, 0, 255, 0.5);
+  color: rgba(255, 255, 255, 1);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(132, 0, 255, 0.2);
+}
+
+/* Cores específicas para algumas tecnologias */
+.card__badge--react {
+  background: rgba(97, 218, 251, 0.15);
+  border-color: rgba(97, 218, 251, 0.3);
+}
+
+.card__badge--react:hover {
+  background: rgba(97, 218, 251, 0.25);
+  border-color: rgba(97, 218, 251, 0.5);
+}
+
+.card__badge--python {
+  background: rgba(255, 212, 59, 0.15);
+  border-color: rgba(255, 212, 59, 0.3);
+}
+
+.card__badge--python:hover {
+  background: rgba(255, 212, 59, 0.25);
+  border-color: rgba(255, 212, 59, 0.5);
+}
+
+.card__badge--docker {
+  background: rgba(33, 150, 243, 0.15);
+  border-color: rgba(33, 150, 243, 0.3);
+}
+
+.card__badge--docker:hover {
+  background: rgba(33, 150, 243, 0.25);
+  border-color: rgba(33, 150, 243, 0.5);
+}
+
+.card__badge--database {
+  background: rgba(76, 175, 80, 0.15);
+  border-color: rgba(76, 175, 80, 0.3);
+}
+
+.card__badge--database:hover {
+  background: rgba(76, 175, 80, 0.25);
+  border-color: rgba(76, 175, 80, 0.5);
+}
+
+.card__badge--softskill {
+  background: rgba(233, 30, 99, 0.15);
+  border-color: rgba(233, 30, 99, 0.3);
+}
+
+.card__badge--softskill:hover {
+  background: rgba(233, 30, 99, 0.25);
+  border-color: rgba(233, 30, 99, 0.5);
+}
+
+/* Botões da área inferior dos cards */
+.card__buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.5em;
+  gap: 0.5em;
+}
+
+.card__buttons-left {
+  display: flex;
+  gap: 0.5em;
+}
+
+.card__button {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 0.5em 0.8em;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  cursor: pointer;
+  user-select: none;
+}
+
+.card__button:hover {
+  background: rgba(132, 0, 255, 0.2);
+  border-color: rgba(132, 0, 255, 0.4);
+  color: rgba(255, 255, 255, 1);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(132, 0, 255, 0.3);
+}
+
+.card__button:active {
+  transform: translateY(0);
+  transition: all 0.1s ease;
+}
+
+.card__button-icon {
+  width: 14px;
+  height: 14px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.card__button:hover .card__button-icon {
+  opacity: 1;
+}
+
+/* Ícones SVG inline */
+.icon-github {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22'%3E%3C/path%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.icon-demo {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'%3E%3C/path%3E%3Cpolyline points='15,3 21,3 21,9'%3E%3C/polyline%3E%3Cline x1='10' y1='14' x2='21' y2='3'%3E%3C/line%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.icon-details {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'%3E%3C/circle%3E%3Cpath d='m9,12 l2,2 4,-4'%3E%3C/path%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Responsividade para os botões e badges */
+@media (max-width: 599px) {
+  .card__badge {
+    padding: 0.25em 0.5em;
+    font-size: 9px;
+    border-radius: 8px;
+  }
+  
+  .card__badges {
+    gap: 0.3em;
+    margin-bottom: 0.6em;
+  }
+  
+  .card__button {
+    padding: 0.4em 0.6em;
+    font-size: 11px;
+  }
+  
+  .card__button-icon {
+    width: 12px;
+    height: 12px;
+  }
 }

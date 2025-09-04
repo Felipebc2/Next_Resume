@@ -12,9 +12,12 @@ export interface BentoCardProps {
   color?: string;
   title?: string;
   description?: string;
-  label?: string;
   textAutoHide?: boolean;
   disableAnimations?: boolean;
+  githubUrl?: string;
+  demoUrl?: string;
+  detailsUrl?: string;
+  technologies?: string[];
 }
 
 export interface BentoProps {
@@ -39,39 +42,53 @@ const MOBILE_BREAKPOINT = 768;
 const cardData: BentoCardProps[] = [
   {
     color: "rgba(6, 0, 16, 0.2)",
-    title: "Analytics",
-    description: "Track user behavior",
-    label: "Insights",
+    title: "Organo_React",
+    description: "Aplicação React para organogramas de equipes",
+    githubUrl: "https://github.com/Felipebc2/Organo_React",
+    demoUrl: "https://organo-react-felipebc2.vercel.app/",
+    detailsUrl: "/projects/organo-react",
+    technologies: ["React", "Vite/Next", "Aprendizado"],
   },
   {
     color: "rgba(6, 0, 16, 0.2)",
-    title: "Dashboard",
-    description: "Centralized data view",
-    label: "Overview",
+    title: "Big Data",
+    description: "Projeto acadêmico de Big Data e análise",
+    githubUrl: "https://github.com/Felipebc2/BigData_AV1",
+    detailsUrl: "/projects/big-data",
+    technologies: ["Docker", "MongoDB", "Cassandra", "Jupyter"],
   },
   {
     color: "rgba(6, 0, 16, 0.2)",
-    title: "Collaboration",
-    description: "Work together seamlessly",
-    label: "Teamwork",
+    title: "1° Lugar em Hackathon - ShareBite",
+    description: "ShareBite - Sistema de doações e redução de desperdício",
+    githubUrl: "https://github.com/Felipebc2/Hackathon-1.25",
+    demoUrl: "https://sharebite-demo.vercel.app/",
+    detailsUrl: "/projects/sharebite",
+    technologies: ["Flask", "Streamlit", "Python", "GeminiApi", "Docker", "MongoDB", "Liderança", "Comunicação"],
   },
   {
     color: "rgba(6, 0, 16, 0.2)",
-    title: "Automation",
-    description: "Streamline workflows",
-    label: "Efficiency",
+    title: "Database",
+    description: "Sistema de banco de dados para Brawl Stars",
+    githubUrl: "https://github.com/Felipebc2/IDP_DB",
+    detailsUrl: "/projects/database",
+    technologies: ["MySQL", "SQL", "Python", "Resolução de Problemas"],
   },
   {
     color: "rgba(6, 0, 16, 0.2)",
-    title: "Integration",
-    description: "Connect favorite tools",
-    label: "Connectivity",
+    title: "OOP",
+    description: "Técnicas de Programação Orientada a Objetos",
+    githubUrl: "https://github.com/Felipebc2/IDP_TPAA",
+    detailsUrl: "/projects/oop",
+    technologies: ["C", "C++", "Resiliência", "Aprendizado"],
   },
   {
     color: "rgba(6, 0, 16, 0.2)",
-    title: "Security",
-    description: "Enterprise-grade protection",
-    label: "Protection",
+    title: "ML/IA",
+    description: "Projetos de Machine Learning e IA",
+    githubUrl: "https://github.com/Felipebc2/IDP_ML",
+    detailsUrl: "/projects/ml-ia",
+    technologies: ["Python", "scikit-learn", "pandas"],
   },
 ];
 
@@ -102,6 +119,106 @@ const calculateSpotlightValues = (radius: number) => ({
   fadeDistance: radius * 0.75,
 });
 
+const TechBadges: React.FC<{
+  technologies?: string[];
+}> = ({ technologies }) => {
+  if (!technologies || technologies.length === 0) {
+    return null;
+  }
+
+  const getBadgeClass = (tech: string): string => {
+    const techLower = tech.toLowerCase();
+    
+    // Soft Skills = Rosa
+    if (techLower.includes('aprendizado') || techLower.includes('liderança') || techLower.includes('comunicação') || 
+        techLower.includes('resolução de problemas') || techLower.includes('resiliência')) {
+      return 'card__badge card__badge--softskill';
+    }
+    
+    if (techLower.includes('react') || techLower.includes('vite') || techLower.includes('next')) {
+      return 'card__badge card__badge--react';
+    }
+    if (techLower.includes('python') || techLower.includes('flask') || techLower.includes('streamlit')) {
+      return 'card__badge card__badge--python';
+    }
+    if (techLower.includes('docker')) {
+      return 'card__badge card__badge--docker';
+    }
+    if (techLower.includes('mysql') || techLower.includes('sql') || techLower.includes('mongodb') || techLower.includes('cassandra')) {
+      return 'card__badge card__badge--database';
+    }
+    return 'card__badge';
+  };
+
+  return (
+    <div className="card__badges">
+      {technologies.map((tech, index) => (
+        <span key={index} className={getBadgeClass(tech)} title={tech}>
+          {tech}
+        </span>
+      ))}
+    </div>
+  );
+};
+
+const CardButtons: React.FC<{
+  githubUrl?: string;
+  demoUrl?: string;
+  detailsUrl?: string;
+}> = ({ githubUrl, demoUrl, detailsUrl }) => {
+  const handleButtonClick = (e: React.MouseEvent, url: string) => {
+    e.stopPropagation();
+    if (url.startsWith('http')) {
+      window.open(url, '_blank', 'noopener,noreferrer');
+    } else {
+      // Para URLs internas, você pode usar o router do Next.js
+      window.location.href = url;
+    }
+  };
+
+  // Se não há nenhum botão para mostrar, não renderiza nada
+  if (!githubUrl && !demoUrl && !detailsUrl) {
+    return null;
+  }
+
+  return (
+    <div className="card__buttons">
+      <div className="card__buttons-left">
+        {githubUrl && (
+          <button
+            className="card__button"
+            onClick={(e) => handleButtonClick(e, githubUrl)}
+            title="Ver código no GitHub"
+          >
+            <div className="card__button-icon icon-github"></div>
+            Código
+          </button>
+        )}
+        {demoUrl && (
+          <button
+            className="card__button"
+            onClick={(e) => handleButtonClick(e, demoUrl)}
+            title="Ver demonstração"
+          >
+            <div className="card__button-icon icon-demo"></div>
+            Demo
+          </button>
+        )}
+      </div>
+      {detailsUrl && (
+        <button
+          className="card__button"
+          onClick={(e) => handleButtonClick(e, detailsUrl)}
+          title="Ver detalhes do projeto"
+        >
+          <div className="card__button-icon icon-details"></div>
+          Detalhes
+        </button>
+      )}
+    </div>
+  );
+};
+
 const updateCardGlowProperties = (
   card: HTMLElement,
   mouseX: number,
@@ -129,6 +246,7 @@ const ParticleCard: React.FC<{
   enableTilt?: boolean;
   clickEffect?: boolean;
   enableMagnetism?: boolean;
+  onCardClick?: () => void;
 }> = ({
   children,
   className = "",
@@ -139,6 +257,7 @@ const ParticleCard: React.FC<{
   enableTilt = true,
   clickEffect = false,
   enableMagnetism = false,
+  onCardClick,
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const particlesRef = useRef<HTMLDivElement[]>([]);
@@ -304,6 +423,7 @@ const ParticleCard: React.FC<{
     };
 
     const handleClick = (e: MouseEvent) => {
+      // Remover redirecionamento - apenas efeito visual se habilitado
       if (!clickEffect) return;
 
       const rect = element.getBoundingClientRect();
@@ -609,13 +729,19 @@ const MagicBento: React.FC<BentoProps> = ({
                 enableTilt={enableTilt}
                 clickEffect={clickEffect}
                 enableMagnetism={enableMagnetism}
+                onCardClick={undefined}
               >
                 <div className="card__header">
-                  <div className="card__label">{card.label}</div>
+                  <div className="card__label">{card.title}</div>
+                  <p className="card__description">{card.description}</p>
                 </div>
                 <div className="card__content">
-                  <h2 className="card__title">{card.title}</h2>
-                  <p className="card__description">{card.description}</p>
+                  <TechBadges technologies={card.technologies} />
+                  <CardButtons 
+                    githubUrl={card.githubUrl}
+                    demoUrl={card.demoUrl}
+                    detailsUrl={card.detailsUrl}
+                  />
                 </div>
               </ParticleCard>
             );
@@ -684,6 +810,7 @@ const MagicBento: React.FC<BentoProps> = ({
                 };
 
                 const handleClick = (e: MouseEvent) => {
+                  // Remover redirecionamento - apenas efeito visual se habilitado
                   if (!clickEffect || shouldDisableAnimations) return;
 
                   const rect = el.getBoundingClientRect();
@@ -735,11 +862,16 @@ const MagicBento: React.FC<BentoProps> = ({
               }}
             >
               <div className="card__header">
-                <div className="card__label">{card.label}</div>
+                <div className="card__label">{card.title}</div>
+                <p className="card__description">{card.description}</p>
               </div>
               <div className="card__content">
-                <h2 className="card__title">{card.title}</h2>
-                <p className="card__description">{card.description}</p>
+                <TechBadges technologies={card.technologies} />
+                <CardButtons 
+                  githubUrl={card.githubUrl}
+                  demoUrl={card.demoUrl}
+                  detailsUrl={card.detailsUrl}
+                />
               </div>
             </div>
           );
