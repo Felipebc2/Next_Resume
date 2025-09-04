@@ -196,7 +196,7 @@
 
 .bounceArrow {
   position: absolute;
-  bottom: 180px;
+  bottom: 100px;
   left: 50%;
   transform: translateX(-50%);
   font-size: 2rem;
@@ -213,19 +213,6 @@
   to {
     transform: translate(-50%, -10px);
   }
-}
-
-.logoLoopContainer {
-  width: 100vw;
-  position: relative;
-  top: 10vh;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 16px 0 8px;
-  margin-top: 16px;
 }
 
 /* Responsividade */
@@ -280,10 +267,6 @@
   
   .logo {
     font-size: 1.75rem;
-  }
-  .logoLoopContainer {
-    padding: 12px 0 4px;
-    margin-top: 8px;
   }
 }
 
