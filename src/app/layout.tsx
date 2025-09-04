@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import DarkVeil from "@/blocks/Backgrounds/DarkVeil/DarkVeil";
 import { SpeedInsights } from "@vercel/speed-insights/next"
-import BackgroundComponents from "./components/BackgroundComponents";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,7 +28,7 @@ export default function RootLayout({
     <html lang="en">
         <body className={`${geistSans.variable} ${geistMono.variable}`} style={{ position: 'relative', width: '100%'}}>
           <SpeedInsights />
-          <BackgroundComponents />
+          <DarkVeil />
           {children}
       </body>
     </html>

@@ -117,6 +117,8 @@ export default function DarkVeil({
   resolutionScale = 1,
 }: Props) {
   const ref = useRef<HTMLCanvasElement>(null);
+  const programRef = useRef<Program | null>(null);
+  
   useEffect(() => {
     const canvas = ref.current as HTMLCanvasElement;
     const parent = canvas.parentElement as HTMLElement;
@@ -155,6 +157,44 @@ export default function DarkVeil({
       },
     });
 
+    programRef.current = program;
+
+    // Lógica de interação do mouse e scroll
+    const onScroll = () => {
+      const max = Math.max(1, document.body.scrollHeight - window.innerHeight);
+      const ratio = Math.min(1, Math.max(0, window.scrollY / max));
+      const newHue = 320 - (320 - 200) * ratio;
+      
+      // Atualizar o shader
+      if (programRef.current) {
+        programRef.current.uniforms.uHueShift.value = newHue;
+      }
+      
+      // Atualizar as variáveis CSS para o gradiente
+      document.documentElement.style.setProperty("--accent-h", String(newHue));
+      document.documentElement.style.setProperty("--accent", `hsl(${newHue} 80% 60%)`);
+    };
+
+    const onMove = (e: MouseEvent) => {
+      const x = e.clientX / window.innerWidth;
+      const y = e.clientY / window.innerHeight;
+      
+      // Atualizar o shader
+      if (programRef.current) {
+        programRef.current.uniforms.uWarp.value = Math.max(x, y) * 2;
+      }
+      
+      // Atualizar as variáveis CSS para o gradiente
+      document.documentElement.style.setProperty("--mx", String(x));
+      document.documentElement.style.setProperty("--my", String(y));
+    };
+
+    // Definir valores iniciais
+    onScroll();
+    
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("mousemove", onMove);
+
     const mesh = new Mesh(gl, { geometry, program });
 
     const resize = () => {
@@ -187,6 +227,9 @@ export default function DarkVeil({
     return () => {
       cancelAnimationFrame(frame);
       window.removeEventListener("resize", resize);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("mousemove", onMove);
+      programRef.current = null;
     };
   }, [
     hueShift,
@@ -198,9 +241,12 @@ export default function DarkVeil({
     resolutionScale,
   ]);
   return (
-    <canvas
-      ref={ref}
-      className="darkveil-canvas"
-    />
+    <>
+      <div className="gradient-bg" aria-hidden />
+      <canvas
+        ref={ref}
+        className="darkveil-canvas"
+      />
+    </>
   );
 }
