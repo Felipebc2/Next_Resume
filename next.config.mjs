@@ -1,14 +1,12 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   compiler: {
-    removeConsole: process.env.NODE_ENV === "production",
+    removeConsole: process.env.NODE_ENV === 'production',
   },
   images: {
-    domains: ['images.unsplash.com'], // Adicione outros domínios de imagens se necessário
+    domains: ['images.unsplash.com'],
     formats: ['image/avif', 'image/webp'],
   },
-  // Otimizações adicionais
   reactStrictMode: true,
   poweredByHeader: false,
   compress: true,
