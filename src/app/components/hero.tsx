@@ -11,7 +11,7 @@ export default function HeroFelipe() {
   const scrollToProjects = () => {
     const projectsSection = document.getElementById('projects');
     if (projectsSection) {
-      const offsetY = 120; // offset de 50px para cima
+      const offsetY = 10; // offset aumentado para ir mais para baixo
       const elementPosition = projectsSection.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offsetY;
       

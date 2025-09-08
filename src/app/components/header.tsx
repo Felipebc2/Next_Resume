@@ -82,7 +82,7 @@ export default function Header() {
         const element = document.getElementById(sectionId);
         if (element) {
             if (sectionId === 'projects') {
-                const offsetY = 120;
+                const offsetY = 10;
                 const elementPosition = element.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - offsetY;
                 

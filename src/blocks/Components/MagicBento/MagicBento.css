@@ -15,6 +15,34 @@
   color-scheme: light dark;
 }
 
+/* Seções do card */
+.card__top {
+  position: relative;
+  height: 60%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.card__bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(6, 0, 16, 0.4); /* 0.1 maior que o fundo original (0.2) */
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 20px;
+  padding: 1.25em;
+  height: 40%;
+}
+
+/* Ajustar o header para a nova estrutura */
+.card__header {
+  position: relative;
+  margin-bottom: 0.8em;
+}
+
 .card-grid {
   display: grid;
   gap: 0.5em;
@@ -32,10 +60,10 @@
   justify-content: space-between;
   position: relative;
   aspect-ratio: 4/3;
-  min-height: 200px;
+  min-height: 350px;
   width: 100%;
   max-width: 100%;
-  padding: 1.25em;
+  padding: 0;
   border-radius: 20px;
   border: 1px solid var(--border-color);
   font-weight: 300;
@@ -69,7 +97,6 @@
 .card__content {
   display: flex;
   position: relative;
-  color: var(--white);
 }
 
 .card__header {
@@ -172,9 +199,25 @@
     grid-row: span 2;
   }
 
+  .card:nth-child(3) .card__top {
+    height: 70%;
+  }
+
+  .card:nth-child(3) .card__bottom {
+    height: 30%;
+  }
+
   .card:nth-child(4) {
     grid-column: 1/span 2;
     grid-row: 2/span 2;
+  }
+
+  .card:nth-child(4) .card__top {
+    height: 70%;
+  }
+
+  .card:nth-child(4) .card__bottom {
+    height: 30%;
   }
 
   .card:nth-child(6) {
@@ -245,6 +288,17 @@
   user-select: none;
 }
 
+/* Título da seção */
+.bento-title {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 2rem 0;
+  color: rgba(255, 255, 255, 1);
+  text-shadow: 0 4px 12px rgba(132, 0, 255, 0.4);
+  letter-spacing: 0.5px;
+}
+
 /* Badges de tecnologia */
 .card__badges {
   display: flex;
@@ -258,13 +312,13 @@
 .card__badge {
   display: inline-flex;
   align-items: center;
-  padding: 0.3em 0.6em;
-  background: rgba(132, 0, 255, 0.15);
-  border: 1px solid rgba(132, 0, 255, 0.3);
+  padding: 0.3em 0.5em;
+  background: rgba(40, 40, 40, 0.9);
+  border: 1px solid rgba(120, 120, 120, 0.6);
   border-radius: 12px;
-  color: rgba(255, 255, 255, 0.9);
+  color: #ff69b4;
   font-size: 10px;
-  font-weight: 500;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   transition: all 0.3s ease;
@@ -274,63 +328,14 @@
 }
 
 .card__badge:hover {
-  background: rgba(132, 0, 255, 0.25);
-  border-color: rgba(132, 0, 255, 0.5);
-  color: rgba(255, 255, 255, 1);
+  background: rgba(50, 50, 50, 0.95);
+  border-color: rgba(140, 140, 140, 0.8);
+  color: #ff1493;
   transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(132, 0, 255, 0.2);
+  box-shadow: 0 2px 8px rgba(255, 105, 180, 0.3);
 }
 
-/* Cores específicas para algumas tecnologias */
-.card__badge--react {
-  background: rgba(97, 218, 251, 0.15);
-  border-color: rgba(97, 218, 251, 0.3);
-}
-
-.card__badge--react:hover {
-  background: rgba(97, 218, 251, 0.25);
-  border-color: rgba(97, 218, 251, 0.5);
-}
-
-.card__badge--python {
-  background: rgba(255, 212, 59, 0.15);
-  border-color: rgba(255, 212, 59, 0.3);
-}
-
-.card__badge--python:hover {
-  background: rgba(255, 212, 59, 0.25);
-  border-color: rgba(255, 212, 59, 0.5);
-}
-
-.card__badge--docker {
-  background: rgba(33, 150, 243, 0.15);
-  border-color: rgba(33, 150, 243, 0.3);
-}
-
-.card__badge--docker:hover {
-  background: rgba(33, 150, 243, 0.25);
-  border-color: rgba(33, 150, 243, 0.5);
-}
-
-.card__badge--database {
-  background: rgba(76, 175, 80, 0.15);
-  border-color: rgba(76, 175, 80, 0.3);
-}
-
-.card__badge--database:hover {
-  background: rgba(76, 175, 80, 0.25);
-  border-color: rgba(76, 175, 80, 0.5);
-}
-
-.card__badge--softskill {
-  background: rgba(233, 30, 99, 0.15);
-  border-color: rgba(233, 30, 99, 0.3);
-}
-
-.card__badge--softskill:hover {
-  background: rgba(233, 30, 99, 0.25);
-  border-color: rgba(233, 30, 99, 0.5);
-}
+/* Todos os badges agora usam a mesma coloração unificada */
 
 /* Botões da área inferior dos cards */
 .card__buttons {
@@ -434,3 +439,36 @@
     height: 12px;
   }
 }
+
+/* Botão do GitHub na seção top */
+.card__github-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: rgba(20, 20, 20, 0.95);
+  border: 1px solid rgba(60, 60, 60, 0.8);
+  border-radius: 8px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 10;
+  margin: 1em 1em 0 0;
+}
+
+.card__github-button:hover {
+  background: rgba(50, 50, 50, 0.95);
+  border-color: rgba(140, 140, 140, 0.8);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.3);
+}
+
+.card__github-button svg {
+  width: 16px;
+  height: 16px;
+}
+

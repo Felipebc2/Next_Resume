@@ -4,8 +4,6 @@
     left: 0;
     right: 0;
     z-index: 10;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
     transition: var(--transition-smooth);
   }
 

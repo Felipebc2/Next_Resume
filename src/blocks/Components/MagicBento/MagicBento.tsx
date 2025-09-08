@@ -15,8 +15,6 @@ export interface BentoCardProps {
   textAutoHide?: boolean;
   disableAnimations?: boolean;
   githubUrl?: string;
-  demoUrl?: string;
-  detailsUrl?: string;
   technologies?: string[];
 }
 
@@ -45,8 +43,6 @@ const cardData: BentoCardProps[] = [
     title: "Organo_React",
     description: "Aplicação React para organogramas de equipes",
     githubUrl: "https://github.com/Felipebc2/Organo_React",
-    demoUrl: "https://organo-react-felipebc2.vercel.app/",
-    detailsUrl: "/projects/organo-react",
     technologies: ["React", "Vite/Next", "Aprendizado"],
   },
   {
@@ -54,7 +50,6 @@ const cardData: BentoCardProps[] = [
     title: "Big Data",
     description: "Projeto acadêmico de Big Data e análise",
     githubUrl: "https://github.com/Felipebc2/BigData_AV1",
-    detailsUrl: "/projects/big-data",
     technologies: ["Docker", "MongoDB", "Cassandra", "Jupyter"],
   },
   {
@@ -62,8 +57,6 @@ const cardData: BentoCardProps[] = [
     title: "1° Lugar em Hackathon - ShareBite",
     description: "ShareBite - Sistema de doações e redução de desperdício",
     githubUrl: "https://github.com/Felipebc2/Hackathon-1.25",
-    demoUrl: "https://sharebite-demo.vercel.app/",
-    detailsUrl: "/projects/sharebite",
     technologies: ["Flask", "Streamlit", "Python", "GeminiApi", "Docker", "MongoDB", "Liderança", "Comunicação"],
   },
   {
@@ -71,7 +64,6 @@ const cardData: BentoCardProps[] = [
     title: "Database",
     description: "Sistema de banco de dados para Brawl Stars",
     githubUrl: "https://github.com/Felipebc2/IDP_DB",
-    detailsUrl: "/projects/database",
     technologies: ["MySQL", "SQL", "Python", "Resolução de Problemas"],
   },
   {
@@ -79,7 +71,6 @@ const cardData: BentoCardProps[] = [
     title: "OOP",
     description: "Técnicas de Programação Orientada a Objetos",
     githubUrl: "https://github.com/Felipebc2/IDP_TPAA",
-    detailsUrl: "/projects/oop",
     technologies: ["C", "C++", "Resiliência", "Aprendizado"],
   },
   {
@@ -87,7 +78,6 @@ const cardData: BentoCardProps[] = [
     title: "ML/IA",
     description: "Projetos de Machine Learning e IA",
     githubUrl: "https://github.com/Felipebc2/IDP_ML",
-    detailsUrl: "/projects/ml-ia",
     technologies: ["Python", "scikit-learn", "pandas"],
   },
 ];
@@ -161,61 +151,40 @@ const TechBadges: React.FC<{
   );
 };
 
-const CardButtons: React.FC<{
+const GitHubButton: React.FC<{
   githubUrl?: string;
-  demoUrl?: string;
-  detailsUrl?: string;
-}> = ({ githubUrl, demoUrl, detailsUrl }) => {
-  const handleButtonClick = (e: React.MouseEvent, url: string) => {
+}> = ({ githubUrl }) => {
+  const handleButtonClick = (e: React.MouseEvent) => {
     e.stopPropagation();
-    if (url.startsWith('http')) {
-      window.open(url, '_blank', 'noopener,noreferrer');
-    } else {
-      // Para URLs internas, você pode usar o router do Next.js
-      window.location.href = url;
+    if (githubUrl) {
+      window.open(githubUrl, '_blank', 'noopener,noreferrer');
     }
   };
 
-  // Se não há nenhum botão para mostrar, não renderiza nada
-  if (!githubUrl && !demoUrl && !detailsUrl) {
+  if (!githubUrl) {
     return null;
   }
 
   return (
-    <div className="card__buttons">
-      <div className="card__buttons-left">
-        {githubUrl && (
-          <button
-            className="card__button"
-            onClick={(e) => handleButtonClick(e, githubUrl)}
-            title="Ver código no GitHub"
-          >
-            <div className="card__button-icon icon-github"></div>
-            Código
-          </button>
-        )}
-        {demoUrl && (
-          <button
-            className="card__button"
-            onClick={(e) => handleButtonClick(e, demoUrl)}
-            title="Ver demonstração"
-          >
-            <div className="card__button-icon icon-demo"></div>
-            Demo
-          </button>
-        )}
-      </div>
-      {detailsUrl && (
-        <button
-          className="card__button"
-          onClick={(e) => handleButtonClick(e, detailsUrl)}
-          title="Ver detalhes do projeto"
-        >
-          <div className="card__button-icon icon-details"></div>
-          Detalhes
-        </button>
-      )}
-    </div>
+    <button
+      className="card__github-button"
+      onClick={handleButtonClick}
+      title="Ver código no GitHub"
+    >
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+      </svg>
+    </button>
   );
 };
 
@@ -256,8 +225,7 @@ const ParticleCard: React.FC<{
   glowColor = DEFAULT_GLOW_COLOR,
   enableTilt = true,
   clickEffect = false,
-  enableMagnetism = false,
-  onCardClick,
+  enableMagnetism = false
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const particlesRef = useRef<HTMLDivElement[]>([]);
@@ -697,6 +665,8 @@ const MagicBento: React.FC<BentoProps> = ({
 
   return (
     <>
+      <h1 className="bento-title">Projetos</h1>
+      
       {enableSpotlight && (
         <GlobalSpotlight
           gridRef={gridRef}
@@ -731,17 +701,17 @@ const MagicBento: React.FC<BentoProps> = ({
                 enableMagnetism={enableMagnetism}
                 onCardClick={undefined}
               >
-                <div className="card__header">
-                  <div className="card__label">{card.title}</div>
-                  <p className="card__description">{card.description}</p>
+                <div className="card__top">
+                  <GitHubButton githubUrl={card.githubUrl} />
                 </div>
-                <div className="card__content">
-                  <TechBadges technologies={card.technologies} />
-                  <CardButtons 
-                    githubUrl={card.githubUrl}
-                    demoUrl={card.demoUrl}
-                    detailsUrl={card.detailsUrl}
-                  />
+                <div className="card__bottom">
+                  <div className="card__header">
+                    <div className="card__label">{card.title}</div>
+                    <p className="card__description">{card.description}</p>
+                  </div>
+                  <div className="card__content">
+                    <TechBadges technologies={card.technologies} />
+                  </div>
                 </div>
               </ParticleCard>
             );
@@ -861,17 +831,17 @@ const MagicBento: React.FC<BentoProps> = ({
                 el.addEventListener("click", handleClick);
               }}
             >
-              <div className="card__header">
-                <div className="card__label">{card.title}</div>
-                <p className="card__description">{card.description}</p>
+              <div className="card__top">
+                <GitHubButton githubUrl={card.githubUrl} />
               </div>
-              <div className="card__content">
-                <TechBadges technologies={card.technologies} />
-                <CardButtons 
-                  githubUrl={card.githubUrl}
-                  demoUrl={card.demoUrl}
-                  detailsUrl={card.detailsUrl}
-                />
+              <div className="card__bottom">
+                <div className="card__header">
+                  <div className="card__label">{card.title}</div>
+                  <p className="card__description">{card.description}</p>
+                </div>
+                <div className="card__content">
+                  <TechBadges technologies={card.technologies} />
+                </div>
               </div>
             </div>
           );
